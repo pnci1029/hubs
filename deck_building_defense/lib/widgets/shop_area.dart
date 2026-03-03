@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'dart:ui';
 import '../providers/game_provider.dart';
 import '../models/card_model.dart';
 import '../enums/game_enums.dart';
-import '../widgets/animated_card.dart';
+import '../widgets/premium_card.dart';
 import '../services/sound_service.dart';
+import '../theme/premium_theme.dart';
 
 class ShopArea extends StatefulWidget {
   const ShopArea({super.key});
@@ -46,25 +48,49 @@ class _ShopAreaState extends State<ShopArea> with TickerProviderStateMixin {
     return Container(
       margin: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.3)),
+        borderRadius: BorderRadius.circular(16),
       ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  PremiumTheme.surfaceDark.withOpacity(0.3),
+                  PremiumTheme.backgroundMid.withOpacity(0.2),
+                  Colors.black.withOpacity(0.1),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(
+                color: PremiumTheme.primaryNeon.withOpacity(0.3),
+                width: 1,
+              ),
+            ),
       child: Column(
         children: [
           // 헤더
           Container(
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.secondary.withOpacity(0.2),
+              gradient: LinearGradient(
+                colors: [
+                  PremiumTheme.primaryNeon.withOpacity(0.2),
+                  PremiumTheme.secondaryNeon.withOpacity(0.1),
+                ],
+              ),
               borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(12),
-                topRight: Radius.circular(12),
+                topLeft: Radius.circular(16),
+                topRight: Radius.circular(16),
               ),
             ),
             child: Row(
               children: [
-                const Icon(Icons.store, color: Colors.white),
+                Icon(Icons.store, color: PremiumTheme.primaryNeon, size: 28),
                 const SizedBox(width: 8),
                 Text(
                   "상점",
@@ -139,7 +165,7 @@ class _ShopAreaState extends State<ShopArea> with TickerProviderStateMixin {
                               opacity: isPurchased 
                                   ? 1.0 - _purchaseAnimation.value
                                   : 1.0,
-                              child: AnimatedCard(
+                              child: PremiumCard(
                                 card: card,
                                 onTap: canAfford ? () {
                                   _handlePurchase(gameProvider, card);
@@ -148,9 +174,9 @@ class _ShopAreaState extends State<ShopArea> with TickerProviderStateMixin {
                                   _showInsufficientManaFeedback();
                                 },
                                 isPlayable: canAfford,
-                                width: 120,
-                                height: 160,
-                                showCost: false,
+                                width: 140,
+                                height: 180,
+                                showCost: true,
                               ),
                             ),
                           );
@@ -169,6 +195,9 @@ class _ShopAreaState extends State<ShopArea> with TickerProviderStateMixin {
             ),
           ),
         ],
+      ),
+          ),
+        ),
       ),
     );
   }

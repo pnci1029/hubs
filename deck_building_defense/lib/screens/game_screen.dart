@@ -8,6 +8,7 @@ import '../widgets/hand_area.dart';
 import '../widgets/status_bar.dart';
 import '../widgets/game_over_dialog.dart';
 import '../enums/game_enums.dart';
+import '../theme/premium_theme.dart';
 
 class GameScreen extends StatelessWidget {
   const GameScreen({super.key});
@@ -15,8 +16,11 @@ class GameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      body: SafeArea(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: PremiumTheme.heroGradient,
+        ),
+        child: SafeArea(
         child: Consumer<GameProvider>(
           builder: (context, gameProvider, child) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -59,6 +63,7 @@ class GameScreen extends StatelessWidget {
               ],
             );
           },
+        ),
         ),
       ),
     );
