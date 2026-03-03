@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'dart:ui';
 import '../providers/game_provider.dart';
 import '../models/card_model.dart';
 import '../enums/game_enums.dart';
-import '../widgets/animated_card.dart';
+import '../widgets/premium_card.dart';
 import '../services/sound_service.dart';
-import '../utils/unit_icons.dart';
+import '../theme/premium_theme.dart';
 
 class HandArea extends StatelessWidget {
   const HandArea({super.key});
@@ -15,7 +16,28 @@ class HandArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 140,
-      color: Theme.of(context).colorScheme.surface,
+      margin: const EdgeInsets.all(8),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  PremiumTheme.backgroundMid.withOpacity(0.4),
+                  PremiumTheme.surfaceDark.withOpacity(0.3),
+                  Colors.black.withOpacity(0.2),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(
+                color: PremiumTheme.secondaryNeon.withOpacity(0.3),
+                width: 1,
+              ),
+            ),
       child: Column(
         children: [
           // 헤더
@@ -23,7 +45,7 @@ class HandArea extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Row(
               children: [
-                const Icon(Icons.pan_tool, color: Colors.white, size: 20),
+                Icon(Icons.pan_tool, color: PremiumTheme.secondaryNeon, size: 24),
                 const SizedBox(width: 8),
                 Text(
                   "손패",
@@ -64,12 +86,12 @@ class HandArea extends StatelessWidget {
                   itemCount: gameProvider.hand.length,
                   itemBuilder: (context, index) {
                     final card = gameProvider.hand[index];
-                    return AnimatedCard(
+                    return PremiumCard(
                       card: card,
                       onTap: () => _onCardTap(card, gameProvider),
                       isPlayable: gameProvider.isRoundActive || card.type != CardType.unit,
-                      width: 80,
-                      height: 110,
+                      width: 100,
+                      height: 130,
                     ).animate().slideX(
                       begin: 1.0,
                       duration: Duration(milliseconds: 300 + (index * 50)),
@@ -81,6 +103,9 @@ class HandArea extends StatelessWidget {
             ),
           ),
         ],
+      ),
+          ),
+        ),
       ),
     );
   }

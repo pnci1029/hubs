@@ -6,6 +6,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'screens/game_screen.dart';
 import 'providers/game_provider.dart';
 import 'services/sound_service.dart';
+import 'theme/premium_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,17 +35,7 @@ class MyApp extends StatelessWidget {
       create: (context) => GameProvider(),
       child: MaterialApp(
         title: '덱 빌딩 디펜스',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          fontFamily: 'Roboto',
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          colorScheme: const ColorScheme.dark(
-            primary: Colors.blue,
-            secondary: Colors.orange,
-            surface: Color(0xFF1E1E1E),
-            background: Color(0xFF121212),
-          ),
-        ),
+        theme: PremiumTheme.theme,
         debugShowCheckedModeBanner: false,
         home: const GameScreen(),
       ),
