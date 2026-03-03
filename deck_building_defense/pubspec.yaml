@@ -48,7 +48,8 @@ dependencies:
   # Utils
   uuid: ^4.3.3
   
-  # Icons
+  # Fonts & Icons
+  google_fonts: ^6.1.0
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
