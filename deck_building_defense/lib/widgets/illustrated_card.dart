@@ -299,90 +299,238 @@ class IllustratedCard extends StatelessWidget {
   }
 
   Widget _buildKingCrabIllustration() {
-    // 킹크랩갓디언 - 거대한 게 + 왕관
+    // 킹크랩갓디언 - Container 구조 + Icons 의미 표현
     return Stack(
       children: [
-        // 배경
+        // 메탈릭 배경 (Container의 깔끔함)
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Colors.red[100]!, Colors.orange[200]!],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Colors.grey[800]!, Colors.red[900]!],
             ),
           ),
         ),
-        // 거대한 게
+        // 중앙 크랩 유닛 (Container로 구조화)
         Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("👑", style: TextStyle(fontSize: 20)), // 왕관
-              SizedBox(height: 2),
-              Text("🦀", style: TextStyle(fontSize: 35)), // 큰 게
-            ],
+          child: Container(
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(
+              color: Colors.red[600],
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: Colors.orange, width: 2),
+            ),
+            child: Icon(
+              Icons.api, // 집게발을 의미하는 직관적 아이콘
+              color: Colors.orange,
+              size: 35,
+            ),
           ),
         ),
-        // 방패 (가디언)
+        // 왕관 (Icons의 직관성)
         Positioned(
-          right: 8,
-          top: 8,
-          child: Text("🛡️", style: TextStyle(fontSize: 18)),
+          top: 25,
+          left: 0,
+          right: 0,
+          child: Center(
+            child: Icon(
+              Icons.workspace_premium, // 킹/프리미엄을 의미
+              color: Colors.yellow,
+              size: 20,
+            ),
+          ),
         ),
-        // 검
+        // 가디언 방패 (Container + Icon)
         Positioned(
-          left: 8,
+          top: 10,
+          right: 10,
+          child: Container(
+            width: 20,
+            height: 20,
+            decoration: BoxDecoration(
+              color: Colors.blue[600],
+              shape: BoxShape.circle,
+            ),
+            child: Icon(
+              Icons.shield,
+              color: Colors.white,
+              size: 12,
+            ),
+          ),
+        ),
+        // 스탯 표시 (Container 정보 + Icon 의미)
+        Positioned(
           bottom: 8,
-          child: Text("⚔️", style: TextStyle(fontSize: 15)),
+          left: 8,
+          child: Row(
+            children: [
+              Icon(Icons.flash_on, size: 12, color: Colors.red),
+              Text("45", style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
+              SizedBox(width: 8),
+              Icon(Icons.favorite, size: 12, color: Colors.green),
+              Text("60", style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
+            ],
+          ),
         ),
       ],
     );
   }
 
   Widget _buildNeoKillerRobotIllustration() {
-    // 네오살인로봇 - 미래형 로봇 + 레이저 + 해골
+    // 네오살인로봇 - Container + Material Icons 하이브리드
     return Stack(
       children: [
-        // 배경 (사이버)
+        // 사이버 배경
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Colors.black, Colors.grey[900]!],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.black, Colors.blue[900]!],
             ),
           ),
         ),
-        // 로봇
+        // 중앙 로봇 유닛
         Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Container(
+            width: 50,
+            height: 70,
+            decoration: BoxDecoration(
+              color: Colors.grey[800],
+              borderRadius: BorderRadius.circular(6),
+              border: Border.all(color: Colors.cyan, width: 2),
+            ),
+            child: Stack(
+              children: [
+                // 로봇 메인 아이콘
+                Center(
+                  child: Icon(
+                    Icons.smart_toy,
+                    color: Colors.grey[300],
+                    size: 35,
+                  ),
+                ),
+                // 사이버 오버레이
+                Center(
+                  child: Icon(
+                    Icons.memory,
+                    color: Colors.cyan[400],
+                    size: 20,
+                  ),
+                ),
+                // 레드 바이저
+                Positioned(
+                  top: 12,
+                  left: 0,
+                  right: 0,
+                  child: Center(
+                    child: Container(
+                      width: 25,
+                      height: 6,
+                      decoration: BoxDecoration(
+                        color: Colors.red[600],
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                  ),
+                ),
+                // 레이저 포인터들
+                Positioned(
+                  bottom: 15,
+                  left: 12,
+                  child: Icon(
+                    Icons.brightness_1,
+                    color: Colors.red,
+                    size: 4,
+                  ),
+                ),
+                Positioned(
+                  bottom: 15,
+                  right: 12,
+                  child: Icon(
+                    Icons.brightness_1,
+                    color: Colors.red,
+                    size: 4,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        // NEO 라벨
+        Positioned(
+          top: 8,
+          left: 8,
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+            decoration: BoxDecoration(
+              color: Colors.green[600],
+              borderRadius: BorderRadius.circular(3),
+            ),
+            child: Text(
+              "NEO",
+              style: TextStyle(color: Colors.white, fontSize: 7, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+        // 킬러 표시 (아이콘 개선)
+        Positioned(
+          top: 8,
+          right: 8,
+          child: Stack(
+            alignment: Alignment.center,
             children: [
-              Text("🤖", style: TextStyle(fontSize: 30)),
-              SizedBox(height: 3),
-              Text("⚡", style: TextStyle(fontSize: 15)), // 전기
+              Icon(
+                Icons.dangerous,
+                color: Colors.red[600],
+                size: 16,
+              ),
+              Icon(
+                Icons.close,
+                color: Colors.white,
+                size: 8,
+              ),
             ],
           ),
         ),
-        // 해골 (살인)
+        // 미래 기술 표시
         Positioned(
-          right: 5,
-          top: 5,
-          child: Text("💀", style: TextStyle(fontSize: 15)),
+          bottom: 25,
+          right: 8,
+          child: Icon(
+            Icons.bolt,
+            color: Colors.yellow,
+            size: 12,
+          ),
         ),
-        // 레이저
+        // 스탯 표시 (아이콘 포함)
         Positioned(
-          left: 5,
-          bottom: 5,
-          child: Text("🔴", style: TextStyle(fontSize: 12)), // 레이저
-        ),
-        // Neo 표시
-        Positioned(
-          left: 5,
-          top: 5,
-          child: Container(
-            padding: EdgeInsets.all(1),
-            decoration: BoxDecoration(
-              color: Colors.green,
-              borderRadius: BorderRadius.circular(2),
-            ),
-            child: Text("N", style: TextStyle(color: Colors.white, fontSize: 8)),
+          bottom: 8,
+          left: 8,
+          child: Row(
+            children: [
+              Icon(Icons.flash_on, size: 10, color: Colors.red),
+              Container(
+                padding: EdgeInsets.all(2),
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+                child: Text("40", style: TextStyle(color: Colors.white, fontSize: 8)),
+              ),
+              SizedBox(width: 4),
+              Icon(Icons.favorite, size: 10, color: Colors.green),
+              Container(
+                padding: EdgeInsets.all(2),
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+                child: Text("30", style: TextStyle(color: Colors.white, fontSize: 8)),
+              ),
+            ],
           ),
         ),
       ],
@@ -390,92 +538,386 @@ class IllustratedCard extends StatelessWidget {
   }
 
   Widget _buildRanranruIllustration() {
-    // 란란루 - 귀여운 캐릭터 + 기쁨 + 행동
+    // 란란루 - Container + Material Icons 하이브리드
     return Stack(
       children: [
-        // 밝은 배경
+        // 마법적 배경
         Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.yellow[100]!, Colors.pink[100]!],
+            gradient: RadialGradient(
+              center: Alignment.center,
+              colors: [Colors.pink[200]!, Colors.purple[300]!],
             ),
           ),
         ),
-        // 중앙 캐릭터
+        // 중앙 마법 구체
         Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("✨", style: TextStyle(fontSize: 12)),
-              Text("😊", style: TextStyle(fontSize: 25)), // 기쁜 얼굴
-              Text("🎵", style: TextStyle(fontSize: 12)),
-            ],
+          child: Container(
+            width: 55,
+            height: 55,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.pink[300]!, Colors.purple[400]!],
+              ),
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.white, width: 2),
+            ),
+            child: Stack(
+              children: [
+                // 외부 마법 링
+                Center(
+                  child: Icon(
+                    Icons.circle,
+                    color: Colors.purple[400],
+                    size: 50,
+                  ),
+                ),
+                // 내부 에너지
+                Center(
+                  child: Icon(
+                    Icons.circle,
+                    color: Colors.white.withOpacity(0.8),
+                    size: 35,
+                  ),
+                ),
+                // 핵심 에너지 (별 아이콘)
+                Center(
+                  child: Icon(
+                    Icons.star,
+                    color: Colors.yellow,
+                    size: 15,
+                  ),
+                ),
+                // 얼굴 - 눈들
+                Positioned(
+                  top: 15,
+                  left: 12,
+                  child: Icon(
+                    Icons.circle,
+                    color: Colors.black,
+                    size: 4,
+                  ),
+                ),
+                Positioned(
+                  top: 15,
+                  right: 12,
+                  child: Icon(
+                    Icons.circle,
+                    color: Colors.black,
+                    size: 4,
+                  ),
+                ),
+                // 웃는 입
+                Positioned(
+                  bottom: 18,
+                  left: 0,
+                  right: 0,
+                  child: Center(
+                    child: Icon(
+                      Icons.sentiment_satisfied,
+                      color: Colors.black,
+                      size: 8,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-        // 파티클들
+        // 마법 파티클들 (아이콘)
         Positioned(
-          right: 8,
-          top: 10,
-          child: Text("💫", style: TextStyle(fontSize: 10)),
+          top: 12,
+          left: 15,
+          child: Icon(
+            Icons.auto_awesome,
+            color: Colors.yellow,
+            size: 8,
+          ),
         ),
         Positioned(
+          top: 20,
+          right: 12,
+          child: Icon(
+            Icons.star_outline,
+            color: Colors.pink,
+            size: 6,
+          ),
+        ),
+        Positioned(
+          bottom: 15,
+          left: 12,
+          child: Icon(
+            Icons.brightness_1,
+            color: Colors.white,
+            size: 5,
+          ),
+        ),
+        Positioned(
+          bottom: 12,
+          right: 15,
+          child: Icon(
+            Icons.fiber_manual_record,
+            color: Colors.purple[200],
+            size: 7,
+          ),
+        ),
+        // 기쁨/마법 표시
+        Positioned(
+          top: 8,
           left: 8,
-          top: 15,
-          child: Text("⭐", style: TextStyle(fontSize: 8)),
+          child: Icon(
+            Icons.sentiment_very_satisfied,
+            color: Colors.yellow,
+            size: 12,
+          ),
         ),
         Positioned(
-          right: 5,
-          bottom: 10,
-          child: Text("🌟", style: TextStyle(fontSize: 8)),
+          top: 8,
+          right: 8,
+          child: Icon(
+            Icons.auto_fix_high,
+            color: Colors.pink,
+            size: 12,
+          ),
+        ),
+        // 스탯 표시 (아이콘 포함)
+        Positioned(
+          bottom: 8,
+          left: 8,
+          child: Row(
+            children: [
+              Icon(Icons.flash_on, size: 10, color: Colors.purple),
+              Container(
+                padding: EdgeInsets.all(2),
+                decoration: BoxDecoration(
+                  color: Colors.purple,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+                child: Text("15", style: TextStyle(color: Colors.white, fontSize: 8)),
+              ),
+              SizedBox(width: 4),
+              Icon(Icons.diamond, size: 10, color: Colors.yellow[600]),
+              Container(
+                padding: EdgeInsets.all(2),
+                decoration: BoxDecoration(
+                  color: Colors.yellow[600],
+                  borderRadius: BorderRadius.circular(2),
+                ),
+                child: Text("2", style: TextStyle(color: Colors.white, fontSize: 8)),
+              ),
+            ],
+          ),
         ),
       ],
     );
   }
 
   Widget _buildMoistureAcademyIllustration() {
-    // 보습학원 - 학교 + 물방울 + 책
+    // 보습학원 - Container + Material Icons 하이브리드
     return Stack(
       children: [
-        // 파란 배경 (수분)
+        // 수분 배경
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Colors.blue[50]!, Colors.blue[100]!],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.blue[100]!, Colors.cyan[200]!],
             ),
           ),
         ),
-        // 학교 건물
+        // 중앙 건물
         Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("🏫", style: TextStyle(fontSize: 25)), // 학교
-              SizedBox(height: 2),
-              Text("📚", style: TextStyle(fontSize: 12)), // 책들
-            ],
+          child: Container(
+            width: 65,
+            height: 70,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: Colors.blue[300]!, width: 2),
+            ),
+            child: Stack(
+              children: [
+                // 메인 학교 아이콘
+                Center(
+                  child: Icon(
+                    Icons.school,
+                    color: Colors.blue[600],
+                    size: 40,
+                  ),
+                ),
+                // 건물 윤곽선 아이콘
+                Center(
+                  child: Icon(
+                    Icons.home_work_outlined,
+                    color: Colors.grey[600],
+                    size: 35,
+                  ),
+                ),
+                // 지붕 Container
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    height: 15,
+                    decoration: BoxDecoration(
+                      color: Colors.red[400],
+                      borderRadius: BorderRadius.vertical(top: Radius.circular(6)),
+                    ),
+                    child: Center(
+                      child: Icon(
+                        Icons.home,
+                        color: Colors.red[600],
+                        size: 10,
+                      ),
+                    ),
+                  ),
+                ),
+                // 책들 아이콘
+                Positioned(
+                  bottom: 15,
+                  left: 15,
+                  child: Icon(
+                    Icons.menu_book,
+                    color: Colors.brown[400],
+                    size: 8,
+                  ),
+                ),
+                Positioned(
+                  bottom: 15,
+                  right: 15,
+                  child: Icon(
+                    Icons.import_contacts,
+                    color: Colors.blue[800],
+                    size: 8,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-        // 물방울들 (보습)
+        // 수분 시스템들 (아이콘)
         Positioned(
-          right: 8,
-          top: 8,
-          child: Text("💧", style: TextStyle(fontSize: 12)),
+          top: 10,
+          left: 10,
+          child: Icon(
+            Icons.water_drop,
+            color: Colors.blue[600],
+            size: 8,
+          ),
         ),
+        Positioned(
+          top: 15,
+          right: 15,
+          child: Icon(
+            Icons.water_drop,
+            color: Colors.cyan[400],
+            size: 6,
+          ),
+        ),
+        Positioned(
+          bottom: 20,
+          left: 12,
+          child: Icon(
+            Icons.opacity,
+            color: Colors.blue[400],
+            size: 10,
+          ),
+        ),
+        Positioned(
+          bottom: 15,
+          right: 10,
+          child: Icon(
+            Icons.water_drop,
+            color: Colors.cyan[600],
+            size: 7,
+          ),
+        ),
+        // 추가 수분 효과들
         Positioned(
           left: 8,
-          top: 12,
-          child: Text("💧", style: TextStyle(fontSize: 10)),
+          top: 35,
+          child: Icon(
+            Icons.opacity,
+            color: Colors.blue[300],
+            size: 8,
+          ),
         ),
         Positioned(
-          right: 12,
+          right: 8,
+          top: 40,
+          child: Icon(
+            Icons.water_drop_outlined,
+            color: Colors.cyan[300],
+            size: 6,
+          ),
+        ),
+        // 아카데미 표시
+        Positioned(
+          top: 8,
+          left: 0,
+          right: 0,
+          child: Center(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+              decoration: BoxDecoration(
+                color: Colors.blue[600],
+                borderRadius: BorderRadius.circular(4),
+              ),
+              child: Text(
+                "ACADEMY",
+                style: TextStyle(color: Colors.white, fontSize: 6, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ),
+        // 교육/학습 표시
+        Positioned(
+          top: 8,
+          left: 8,
+          child: Icon(
+            Icons.cast_for_education,
+            color: Colors.blue[800],
+            size: 12,
+          ),
+        ),
+        Positioned(
+          top: 8,
+          right: 8,
+          child: Icon(
+            Icons.spa,
+            color: Colors.green[400],
+            size: 12,
+          ),
+        ),
+        // 스탯 표시 (아이콘 포함)
+        Positioned(
           bottom: 8,
-          child: Text("💦", style: TextStyle(fontSize: 10)),
-        ),
-        // 선생님
-        Positioned(
-          left: 5,
-          bottom: 5,
-          child: Text("👩‍🏫", style: TextStyle(fontSize: 12)),
+          left: 8,
+          child: Row(
+            children: [
+              Icon(Icons.favorite, size: 10, color: Colors.green),
+              Container(
+                padding: EdgeInsets.all(2),
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+                child: Text("20", style: TextStyle(color: Colors.white, fontSize: 8)),
+              ),
+              SizedBox(width: 4),
+              Icon(Icons.diamond, size: 10, color: Colors.yellow[600]),
+              Container(
+                padding: EdgeInsets.all(2),
+                decoration: BoxDecoration(
+                  color: Colors.yellow[600],
+                  borderRadius: BorderRadius.circular(2),
+                ),
+                child: Text("1", style: TextStyle(color: Colors.white, fontSize: 8)),
+              ),
+            ],
+          ),
         ),
       ],
     );
