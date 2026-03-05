@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../widgets/simple_test_card.dart';
+import '../widgets/illustrated_card.dart';
+import '../models/card_model.dart';
+import '../enums/game_enums.dart';
 
 class TestCardScreen extends StatelessWidget {
   const TestCardScreen({super.key});
@@ -24,39 +26,80 @@ class TestCardScreen extends StatelessWidget {
               runSpacing: 20,
               alignment: WrapAlignment.center,
               children: [
-                // 드론 자판기 카드
-                SimpleTestCard(
-                  cardName: "드론 자판기",
-                  description: "매턴 드론 1마리를 자동으로 소환",
-                  cost: 3,
-                  hp: 15,
+                // 킹크랩갓디언
+                Container(
+                  width: 250,
+                  height: 350,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "test1",
+                      name: "킹크랩갓디언",
+                      description: "거대한 킹크랩이 수호자가 되어 전장을 지배합니다",
+                      cost: 8,
+                      type: CardType.unit,
+                      attack: 45,
+                      hp: 60,
+                    ),
+                    width: 250,
+                    height: 350,
+                  ),
                 ),
                 
-                // 핵 스나이퍼 카드
-                SimpleTestCard(
-                  cardName: "핵 스나이퍼",
-                  description: "원거리 저격. 핵탄두 강화 총알",
-                  cost: 6,
-                  attack: 25,
-                  hp: 8,
+                // 네오살인로봇
+                Container(
+                  width: 250,
+                  height: 350,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "test2",
+                      name: "네오살인로봇",
+                      description: "미래에서 온 살인 로봇. 레이저로 적을 제거합니다",
+                      cost: 7,
+                      type: CardType.unit,
+                      attack: 40,
+                      hp: 30,
+                    ),
+                    width: 250,
+                    height: 350,
+                  ),
                 ),
                 
-                // SCV 카드
-                SimpleTestCard(
-                  cardName: "SCV",
-                  description: "기본 자원 카드",
-                  cost: 0,
-                  mineral: 1,
-                  attack: 10,
-                  hp: 3,
+                // 란란루
+                Container(
+                  width: 250,
+                  height: 350,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "test3",
+                      name: "란란루",
+                      description: "기쁘면 저질러버리는 신비로운 존재",
+                      cost: 3,
+                      type: CardType.magic,
+                      mineral: 2,
+                      attack: 15,
+                    ),
+                    width: 250,
+                    height: 350,
+                  ),
                 ),
                 
-                // 마린 카드
-                SimpleTestCard(
-                  cardName: "마린",
-                  description: "기본 유닛 카드",
-                  cost: 2,
-                  attack: 10,
+                // 보습학원
+                Container(
+                  width: 250,
+                  height: 350,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "test4",
+                      name: "보습학원",
+                      description: "피부 건강과 교육을 동시에! 보습 효과로 HP 회복",
+                      cost: 4,
+                      type: CardType.effect,
+                      hp: 20,
+                      mineral: 1,
+                    ),
+                    width: 250,
+                    height: 350,
+                  ),
                 ),
               ],
             ),
