@@ -9,6 +9,7 @@ import '../widgets/status_bar.dart';
 import '../widgets/game_over_dialog.dart';
 import '../enums/game_enums.dart';
 import '../theme/premium_theme.dart';
+import 'test_card_screen.dart';
 
 class GameScreen extends StatelessWidget {
   const GameScreen({super.key});
@@ -16,6 +17,17 @@ class GameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const TestCardScreen(),
+            ),
+          );
+        },
+        backgroundColor: PremiumTheme.primaryNeon,
+        child: const Icon(Icons.palette, color: Colors.white),
+      ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: PremiumTheme.heroGradient,
