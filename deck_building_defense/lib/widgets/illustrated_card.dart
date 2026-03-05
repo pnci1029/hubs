@@ -379,10 +379,10 @@ class IllustratedCard extends StatelessWidget {
   }
 
   Widget _buildNeoKillerRobotIllustration() {
-    // 네오살인로봇 - Container + Material Icons 하이브리드
+    // 네오살인로봇 - Container 구조 + Icons 의미
     return Stack(
       children: [
-        // 사이버 배경
+        // 사이버 배경 (Container의 깔끔함)
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -392,7 +392,7 @@ class IllustratedCard extends StatelessWidget {
             ),
           ),
         ),
-        // 중앙 로봇 유닛
+        // 중앙 로봇 유닛 (Container 구조화)
         Center(
           child: Container(
             width: 50,
@@ -402,64 +402,14 @@ class IllustratedCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(6),
               border: Border.all(color: Colors.cyan, width: 2),
             ),
-            child: Stack(
-              children: [
-                // 로봇 메인 아이콘
-                Center(
-                  child: Icon(
-                    Icons.smart_toy,
-                    color: Colors.grey[300],
-                    size: 35,
-                  ),
-                ),
-                // 사이버 오버레이
-                Center(
-                  child: Icon(
-                    Icons.memory,
-                    color: Colors.cyan[400],
-                    size: 20,
-                  ),
-                ),
-                // 레드 바이저
-                Positioned(
-                  top: 12,
-                  left: 0,
-                  right: 0,
-                  child: Center(
-                    child: Container(
-                      width: 25,
-                      height: 6,
-                      decoration: BoxDecoration(
-                        color: Colors.red[600],
-                        borderRadius: BorderRadius.circular(2),
-                      ),
-                    ),
-                  ),
-                ),
-                // 레이저 포인터들
-                Positioned(
-                  bottom: 15,
-                  left: 12,
-                  child: Icon(
-                    Icons.brightness_1,
-                    color: Colors.red,
-                    size: 4,
-                  ),
-                ),
-                Positioned(
-                  bottom: 15,
-                  right: 12,
-                  child: Icon(
-                    Icons.brightness_1,
-                    color: Colors.red,
-                    size: 4,
-                  ),
-                ),
-              ],
+            child: Icon(
+              Icons.smart_toy, // 로봇을 직관적으로 표현
+              color: Colors.cyan[400],
+              size: 40,
             ),
           ),
         ),
-        // NEO 라벨
+        // NEO 라벨 (Container)
         Positioned(
           top: 8,
           left: 8,
@@ -471,65 +421,41 @@ class IllustratedCard extends StatelessWidget {
             ),
             child: Text(
               "NEO",
-              style: TextStyle(color: Colors.white, fontSize: 7, fontWeight: FontWeight.bold),
+              style: TextStyle(color: Colors.white, fontSize: 8, fontWeight: FontWeight.bold),
             ),
           ),
         ),
-        // 킬러 표시 (아이콘 개선)
+        // 킬러/위험 표시 (Icon 의미)
         Positioned(
           top: 8,
           right: 8,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Icon(
-                Icons.dangerous,
-                color: Colors.red[600],
-                size: 16,
-              ),
-              Icon(
-                Icons.close,
-                color: Colors.white,
-                size: 8,
-              ),
-            ],
+          child: Icon(
+            Icons.dangerous,
+            color: Colors.red[600],
+            size: 18,
           ),
         ),
-        // 미래 기술 표시
+        // 미래 기술 표시 (Icon)
         Positioned(
           bottom: 25,
           right: 8,
           child: Icon(
             Icons.bolt,
             color: Colors.yellow,
-            size: 12,
+            size: 14,
           ),
         ),
-        // 스탯 표시 (아이콘 포함)
+        // 스탯 표시 (Container + Icon)
         Positioned(
           bottom: 8,
           left: 8,
           child: Row(
             children: [
-              Icon(Icons.flash_on, size: 10, color: Colors.red),
-              Container(
-                padding: EdgeInsets.all(2),
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(2),
-                ),
-                child: Text("40", style: TextStyle(color: Colors.white, fontSize: 8)),
-              ),
-              SizedBox(width: 4),
-              Icon(Icons.favorite, size: 10, color: Colors.green),
-              Container(
-                padding: EdgeInsets.all(2),
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(2),
-                ),
-                child: Text("30", style: TextStyle(color: Colors.white, fontSize: 8)),
-              ),
+              Icon(Icons.flash_on, size: 12, color: Colors.red),
+              Text("40", style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
+              SizedBox(width: 8),
+              Icon(Icons.favorite, size: 12, color: Colors.green),
+              Text("30", style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
             ],
           ),
         ),
@@ -538,10 +464,10 @@ class IllustratedCard extends StatelessWidget {
   }
 
   Widget _buildRanranruIllustration() {
-    // 란란루 - Container + Material Icons 하이브리드
+    // 란란루 - Container 구조 + Icons 의미
     return Stack(
       children: [
-        // 마법적 배경
+        // 마법적 배경 (Container의 깔끔함)
         Container(
           decoration: BoxDecoration(
             gradient: RadialGradient(
@@ -550,7 +476,7 @@ class IllustratedCard extends StatelessWidget {
             ),
           ),
         ),
-        // 중앙 마법 구체
+        // 중앙 마법 구체 (Container 구조화)
         Center(
           child: Container(
             width: 55,
@@ -562,149 +488,62 @@ class IllustratedCard extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(color: Colors.white, width: 2),
             ),
-            child: Stack(
-              children: [
-                // 외부 마법 링
-                Center(
-                  child: Icon(
-                    Icons.circle,
-                    color: Colors.purple[400],
-                    size: 50,
-                  ),
-                ),
-                // 내부 에너지
-                Center(
-                  child: Icon(
-                    Icons.circle,
-                    color: Colors.white.withOpacity(0.8),
-                    size: 35,
-                  ),
-                ),
-                // 핵심 에너지 (별 아이콘)
-                Center(
-                  child: Icon(
-                    Icons.star,
-                    color: Colors.yellow,
-                    size: 15,
-                  ),
-                ),
-                // 얼굴 - 눈들
-                Positioned(
-                  top: 15,
-                  left: 12,
-                  child: Icon(
-                    Icons.circle,
-                    color: Colors.black,
-                    size: 4,
-                  ),
-                ),
-                Positioned(
-                  top: 15,
-                  right: 12,
-                  child: Icon(
-                    Icons.circle,
-                    color: Colors.black,
-                    size: 4,
-                  ),
-                ),
-                // 웃는 입
-                Positioned(
-                  bottom: 18,
-                  left: 0,
-                  right: 0,
-                  child: Center(
-                    child: Icon(
-                      Icons.sentiment_satisfied,
-                      color: Colors.black,
-                      size: 8,
-                    ),
-                  ),
-                ),
-              ],
+            child: Icon(
+              Icons.auto_fix_high, // 마법을 직관적으로 표현
+              color: Colors.white,
+              size: 30,
             ),
           ),
         ),
-        // 마법 파티클들 (아이콘)
-        Positioned(
-          top: 12,
-          left: 15,
-          child: Icon(
-            Icons.auto_awesome,
-            color: Colors.yellow,
-            size: 8,
-          ),
-        ),
-        Positioned(
-          top: 20,
-          right: 12,
-          child: Icon(
-            Icons.star_outline,
-            color: Colors.pink,
-            size: 6,
-          ),
-        ),
-        Positioned(
-          bottom: 15,
-          left: 12,
-          child: Icon(
-            Icons.brightness_1,
-            color: Colors.white,
-            size: 5,
-          ),
-        ),
-        Positioned(
-          bottom: 12,
-          right: 15,
-          child: Icon(
-            Icons.fiber_manual_record,
-            color: Colors.purple[200],
-            size: 7,
-          ),
-        ),
-        // 기쁨/마법 표시
+        // 기쁨 표시 (Icon 의미)
         Positioned(
           top: 8,
           left: 8,
           child: Icon(
             Icons.sentiment_very_satisfied,
             color: Colors.yellow,
+            size: 16,
+          ),
+        ),
+        // 마법 파티클들 (Icon)
+        Positioned(
+          top: 12,
+          right: 15,
+          child: Icon(
+            Icons.auto_awesome,
+            color: Colors.yellow,
             size: 12,
           ),
         ),
         Positioned(
-          top: 8,
-          right: 8,
+          bottom: 15,
+          left: 12,
           child: Icon(
-            Icons.auto_fix_high,
+            Icons.star_outline,
             color: Colors.pink,
-            size: 12,
+            size: 10,
           ),
         ),
-        // 스탯 표시 (아이콘 포함)
+        Positioned(
+          bottom: 12,
+          right: 15,
+          child: Icon(
+            Icons.brightness_1,
+            color: Colors.white,
+            size: 8,
+          ),
+        ),
+        // 스탯 표시 (Container + Icon)
         Positioned(
           bottom: 8,
           left: 8,
           child: Row(
             children: [
-              Icon(Icons.flash_on, size: 10, color: Colors.purple),
-              Container(
-                padding: EdgeInsets.all(2),
-                decoration: BoxDecoration(
-                  color: Colors.purple,
-                  borderRadius: BorderRadius.circular(2),
-                ),
-                child: Text("15", style: TextStyle(color: Colors.white, fontSize: 8)),
-              ),
-              SizedBox(width: 4),
-              Icon(Icons.diamond, size: 10, color: Colors.yellow[600]),
-              Container(
-                padding: EdgeInsets.all(2),
-                decoration: BoxDecoration(
-                  color: Colors.yellow[600],
-                  borderRadius: BorderRadius.circular(2),
-                ),
-                child: Text("2", style: TextStyle(color: Colors.white, fontSize: 8)),
-              ),
+              Icon(Icons.flash_on, size: 12, color: Colors.purple),
+              Text("15", style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
+              SizedBox(width: 8),
+              Icon(Icons.diamond, size: 12, color: Colors.yellow[600]),
+              Text("2", style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
             ],
           ),
         ),
@@ -713,10 +552,10 @@ class IllustratedCard extends StatelessWidget {
   }
 
   Widget _buildMoistureAcademyIllustration() {
-    // 보습학원 - Container + Material Icons 하이브리드
+    // 보습학원 - Container 구조 + Icons 의미
     return Stack(
       children: [
-        // 수분 배경
+        // 수분 배경 (Container의 깔끔함)
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -726,7 +565,7 @@ class IllustratedCard extends StatelessWidget {
             ),
           ),
         ),
-        // 중앙 건물
+        // 중앙 건물 (Container 구조화)
         Center(
           child: Container(
             width: 65,
@@ -736,84 +575,50 @@ class IllustratedCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
               border: Border.all(color: Colors.blue[300]!, width: 2),
             ),
-            child: Stack(
-              children: [
-                // 메인 학교 아이콘
-                Center(
-                  child: Icon(
-                    Icons.school,
-                    color: Colors.blue[600],
-                    size: 40,
-                  ),
-                ),
-                // 건물 윤곽선 아이콘
-                Center(
-                  child: Icon(
-                    Icons.home_work_outlined,
-                    color: Colors.grey[600],
-                    size: 35,
-                  ),
-                ),
-                // 지붕 Container
-                Positioned(
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  child: Container(
-                    height: 15,
-                    decoration: BoxDecoration(
-                      color: Colors.red[400],
-                      borderRadius: BorderRadius.vertical(top: Radius.circular(6)),
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.home,
-                        color: Colors.red[600],
-                        size: 10,
-                      ),
-                    ),
-                  ),
-                ),
-                // 책들 아이콘
-                Positioned(
-                  bottom: 15,
-                  left: 15,
-                  child: Icon(
-                    Icons.menu_book,
-                    color: Colors.brown[400],
-                    size: 8,
-                  ),
-                ),
-                Positioned(
-                  bottom: 15,
-                  right: 15,
-                  child: Icon(
-                    Icons.import_contacts,
-                    color: Colors.blue[800],
-                    size: 8,
-                  ),
-                ),
-              ],
+            child: Icon(
+              Icons.school, // 학교를 직관적으로 표현
+              color: Colors.blue[600],
+              size: 50,
             ),
           ),
         ),
-        // 수분 시스템들 (아이콘)
+        // 아카데미 표시 (Container)
+        Positioned(
+          top: 8,
+          left: 0,
+          right: 0,
+          child: Center(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+              decoration: BoxDecoration(
+                color: Colors.blue[600],
+                borderRadius: BorderRadius.circular(4),
+              ),
+              child: Text(
+                "ACADEMY",
+                style: TextStyle(color: Colors.white, fontSize: 8, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ),
+        // 수분/보습 표시 (Icon 의미)
+        Positioned(
+          top: 8,
+          right: 8,
+          child: Icon(
+            Icons.spa, // 스파/보습을 의미
+            color: Colors.green[400],
+            size: 16,
+          ),
+        ),
+        // 수분 시스템들 (Icon)
         Positioned(
           top: 10,
           left: 10,
           child: Icon(
             Icons.water_drop,
             color: Colors.blue[600],
-            size: 8,
-          ),
-        ),
-        Positioned(
-          top: 15,
-          right: 15,
-          child: Icon(
-            Icons.water_drop,
-            color: Colors.cyan[400],
-            size: 6,
+            size: 12,
           ),
         ),
         Positioned(
@@ -822,7 +627,7 @@ class IllustratedCard extends StatelessWidget {
           child: Icon(
             Icons.opacity,
             color: Colors.blue[400],
-            size: 10,
+            size: 14,
           ),
         ),
         Positioned(
@@ -831,91 +636,20 @@ class IllustratedCard extends StatelessWidget {
           child: Icon(
             Icons.water_drop,
             color: Colors.cyan[600],
-            size: 7,
+            size: 10,
           ),
         ),
-        // 추가 수분 효과들
-        Positioned(
-          left: 8,
-          top: 35,
-          child: Icon(
-            Icons.opacity,
-            color: Colors.blue[300],
-            size: 8,
-          ),
-        ),
-        Positioned(
-          right: 8,
-          top: 40,
-          child: Icon(
-            Icons.water_drop_outlined,
-            color: Colors.cyan[300],
-            size: 6,
-          ),
-        ),
-        // 아카데미 표시
-        Positioned(
-          top: 8,
-          left: 0,
-          right: 0,
-          child: Center(
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-              decoration: BoxDecoration(
-                color: Colors.blue[600],
-                borderRadius: BorderRadius.circular(4),
-              ),
-              child: Text(
-                "ACADEMY",
-                style: TextStyle(color: Colors.white, fontSize: 6, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-        ),
-        // 교육/학습 표시
-        Positioned(
-          top: 8,
-          left: 8,
-          child: Icon(
-            Icons.cast_for_education,
-            color: Colors.blue[800],
-            size: 12,
-          ),
-        ),
-        Positioned(
-          top: 8,
-          right: 8,
-          child: Icon(
-            Icons.spa,
-            color: Colors.green[400],
-            size: 12,
-          ),
-        ),
-        // 스탯 표시 (아이콘 포함)
+        // 스탯 표시 (Container + Icon)
         Positioned(
           bottom: 8,
           left: 8,
           child: Row(
             children: [
-              Icon(Icons.favorite, size: 10, color: Colors.green),
-              Container(
-                padding: EdgeInsets.all(2),
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(2),
-                ),
-                child: Text("20", style: TextStyle(color: Colors.white, fontSize: 8)),
-              ),
-              SizedBox(width: 4),
-              Icon(Icons.diamond, size: 10, color: Colors.yellow[600]),
-              Container(
-                padding: EdgeInsets.all(2),
-                decoration: BoxDecoration(
-                  color: Colors.yellow[600],
-                  borderRadius: BorderRadius.circular(2),
-                ),
-                child: Text("1", style: TextStyle(color: Colors.white, fontSize: 8)),
-              ),
+              Icon(Icons.favorite, size: 12, color: Colors.green),
+              Text("20", style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
+              SizedBox(width: 8),
+              Icon(Icons.diamond, size: 12, color: Colors.yellow[600]),
+              Text("1", style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
             ],
           ),
         ),
