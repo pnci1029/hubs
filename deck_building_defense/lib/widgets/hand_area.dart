@@ -5,7 +5,7 @@ import 'dart:ui';
 import '../providers/game_provider.dart';
 import '../models/card_model.dart';
 import '../enums/game_enums.dart';
-import '../widgets/premium_card.dart';
+import '../widgets/illustrated_card.dart';
 import '../services/sound_service.dart';
 import '../theme/premium_theme.dart';
 
@@ -86,7 +86,7 @@ class HandArea extends StatelessWidget {
                   itemCount: gameProvider.hand.length,
                   itemBuilder: (context, index) {
                     final card = gameProvider.hand[index];
-                    return PremiumCard(
+                    return IllustratedCard(
                       card: card,
                       onTap: () => _onCardTap(card, gameProvider),
                       isPlayable: gameProvider.isRoundActive || card.type != CardType.unit,

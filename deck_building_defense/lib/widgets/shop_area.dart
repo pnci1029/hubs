@@ -5,7 +5,7 @@ import 'dart:ui';
 import '../providers/game_provider.dart';
 import '../models/card_model.dart';
 import '../enums/game_enums.dart';
-import '../widgets/premium_card.dart';
+import '../widgets/illustrated_card.dart';
 import '../services/sound_service.dart';
 import '../theme/premium_theme.dart';
 
@@ -165,7 +165,7 @@ class _ShopAreaState extends State<ShopArea> with TickerProviderStateMixin {
                               opacity: isPurchased 
                                   ? 1.0 - _purchaseAnimation.value
                                   : 1.0,
-                              child: PremiumCard(
+                              child: IllustratedCard(
                                 card: card,
                                 onTap: canAfford ? () {
                                   _handlePurchase(gameProvider, card);
