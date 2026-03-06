@@ -2,6 +2,35 @@ import 'package:flutter/material.dart';
 import '../models/card_model.dart';
 import '../enums/game_enums.dart';
 
+// 하트 모양을 그리는 CustomPainter
+class HeartPainter extends CustomPainter {
+  final Color color;
+
+  HeartPainter(this.color);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.fill;
+
+    final path = Path();
+    final width = size.width;
+    final height = size.height;
+
+    // 하트 모양 경로
+    path.moveTo(width / 2, height * 0.75);
+    path.cubicTo(width * 0.2, height * 0.1, -width * 0.25, height * 0.6, width / 2, height);
+    path.moveTo(width / 2, height * 0.75);
+    path.cubicTo(width * 0.8, height * 0.1, width * 1.25, height * 0.6, width / 2, height);
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
+}
+
 class IllustratedCard extends StatelessWidget {
   final CardModel card;
   final VoidCallback? onTap;
@@ -299,79 +328,155 @@ class IllustratedCard extends StatelessWidget {
   }
 
   Widget _buildKingCrabIllustration() {
-    // 킹크랩갓디언 - Container 구조 + Icons 의미 표현
+    // 킹크랩갓디언 - 실제 킹크랩 생명체 디자인
     return Stack(
       children: [
-        // 메탈릭 배경 (Container의 깔끔함)
+        // 바다 배경
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [Colors.grey[800]!, Colors.red[900]!],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.blue[800]!, Colors.blue[900]!],
             ),
           ),
         ),
-        // 중앙 크랩 유닛 (Container로 구조화)
+        // 크랩 몸체 (실제 게 모양)
         Center(
-          child: Container(
-            width: 60,
-            height: 60,
-            decoration: BoxDecoration(
-              color: Colors.red[600],
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Colors.orange, width: 2),
-            ),
-            child: Icon(
-              Icons.api, // 집게발을 의미하는 직관적 아이콘
-              color: Colors.orange,
-              size: 35,
-            ),
+          child: Stack(
+            children: [
+              // 게 몸통
+              Container(
+                width: 50,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Colors.red[600],
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: Colors.red[800]!, width: 2),
+                ),
+              ),
+              // 왼쪽 집게발
+              Positioned(
+                left: -8,
+                top: 15,
+                child: Container(
+                  width: 12,
+                  height: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.red[700],
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                ),
+              ),
+              // 오른쪽 집게발
+              Positioned(
+                right: -8,
+                top: 15,
+                child: Container(
+                  width: 12,
+                  height: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.red[700],
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                ),
+              ),
+              // 게 눈
+              Positioned(
+                top: 8,
+                left: 15,
+                child: Container(
+                  width: 6,
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 8,
+                right: 15,
+                child: Container(
+                  width: 6,
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
-        // 왕관 (Icons의 직관성)
+        // 킹 왕관
         Positioned(
-          top: 25,
+          top: 8,
           left: 0,
           right: 0,
           child: Center(
-            child: Icon(
-              Icons.workspace_premium, // 킹/프리미엄을 의미
-              color: Colors.yellow,
-              size: 20,
+            child: Container(
+              width: 25,
+              height: 15,
+              decoration: BoxDecoration(
+                color: Colors.yellow[600],
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(8),
+                  topRight: Radius.circular(8),
+                ),
+              ),
+              child: Center(
+                child: Text(
+                  "♦",
+                  style: TextStyle(color: Colors.red, fontSize: 8),
+                ),
+              ),
             ),
           ),
         ),
-        // 가디언 방패 (Container + Icon)
+        // 가디언 방패
         Positioned(
-          top: 10,
+          bottom: 15,
           right: 10,
           child: Container(
-            width: 20,
-            height: 20,
+            width: 15,
+            height: 18,
             decoration: BoxDecoration(
               color: Colors.blue[600],
-              shape: BoxShape.circle,
+              borderRadius: BorderRadius.circular(4),
+              border: Border.all(color: Colors.silver, width: 1),
             ),
-            child: Icon(
-              Icons.shield,
-              color: Colors.white,
-              size: 12,
+            child: Center(
+              child: Text(
+                "+",
+                style: TextStyle(color: Colors.white, fontSize: 8, fontWeight: FontWeight.bold),
+              ),
             ),
           ),
         ),
-        // 스탯 표시 (Container 정보 + Icon 의미)
+        // 물거품 효과
         Positioned(
-          bottom: 8,
-          left: 8,
-          child: Row(
-            children: [
-              Icon(Icons.flash_on, size: 12, color: Colors.red),
-              Text("45", style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
-              SizedBox(width: 8),
-              Icon(Icons.favorite, size: 12, color: Colors.green),
-              Text("60", style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
-            ],
+          top: 12,
+          right: 15,
+          child: Container(
+            width: 4,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.7),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          top: 18,
+          right: 20,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.5),
+              shape: BoxShape.circle,
+            ),
           ),
         ),
       ],
@@ -379,37 +484,137 @@ class IllustratedCard extends StatelessWidget {
   }
 
   Widget _buildNeoKillerRobotIllustration() {
-    // 네오살인로봇 - Container 구조 + Icons 의미
+    // 네오살인로봇 - 실제 로봇 형태 디자인
     return Stack(
       children: [
-        // 사이버 배경 (Container의 깔끔함)
+        // 사이버 배경
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Colors.black, Colors.blue[900]!],
+              colors: [Colors.grey[900]!, Colors.black],
             ),
           ),
         ),
-        // 중앙 로봇 유닛 (Container 구조화)
+        // 로봇 몸체 (실제 로봇 모양)
         Center(
-          child: Container(
-            width: 50,
-            height: 70,
-            decoration: BoxDecoration(
-              color: Colors.grey[800],
-              borderRadius: BorderRadius.circular(6),
-              border: Border.all(color: Colors.cyan, width: 2),
-            ),
-            child: Icon(
-              Icons.smart_toy, // 로봇을 직관적으로 표현
-              color: Colors.cyan[400],
-              size: 40,
-            ),
+          child: Stack(
+            children: [
+              // 로봇 몸통
+              Container(
+                width: 45,
+                height: 55,
+                decoration: BoxDecoration(
+                  color: Colors.grey[700],
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.cyan[400]!, width: 2),
+                ),
+              ),
+              // 로봇 머리
+              Positioned(
+                top: -8,
+                left: 8,
+                child: Container(
+                  width: 29,
+                  height: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    borderRadius: BorderRadius.circular(6),
+                    border: Border.all(color: Colors.cyan[300]!, width: 1),
+                  ),
+                ),
+              ),
+              // 로봇 눈 (LED)
+              Positioned(
+                top: -2,
+                left: 15,
+                child: Container(
+                  width: 4,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.red[400],
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.red.withOpacity(0.5),
+                        blurRadius: 3,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                top: -2,
+                right: 15,
+                child: Container(
+                  width: 4,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.red[400],
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.red.withOpacity(0.5),
+                        blurRadius: 3,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              // 로봇 팔 (왼쪽)
+              Positioned(
+                left: -8,
+                top: 15,
+                child: Container(
+                  width: 8,
+                  height: 25,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+              // 로봇 팔 (오른쪽)
+              Positioned(
+                right: -8,
+                top: 15,
+                child: Container(
+                  width: 8,
+                  height: 25,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+              // 가슴 패널
+              Positioned(
+                top: 18,
+                left: 12,
+                child: Container(
+                  width: 21,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[800],
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                  child: Center(
+                    child: Container(
+                      width: 3,
+                      height: 3,
+                      decoration: BoxDecoration(
+                        color: Colors.green[400],
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
-        // NEO 라벨 (Container)
+        // NEO 라벨
         Positioned(
           top: 8,
           left: 8,
@@ -425,38 +630,42 @@ class IllustratedCard extends StatelessWidget {
             ),
           ),
         ),
-        // 킬러/위험 표시 (Icon 의미)
+        // 킬러 마크
         Positioned(
           top: 8,
           right: 8,
-          child: Icon(
-            Icons.dangerous,
-            color: Colors.red[600],
-            size: 18,
+          child: Container(
+            width: 12,
+            height: 12,
+            decoration: BoxDecoration(
+              color: Colors.red[600],
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: Text(
+                "!",
+                style: TextStyle(color: Colors.white, fontSize: 8, fontWeight: FontWeight.bold),
+              ),
+            ),
           ),
         ),
-        // 미래 기술 표시 (Icon)
+        // 레이저 광선
         Positioned(
-          bottom: 25,
-          right: 8,
-          child: Icon(
-            Icons.bolt,
-            color: Colors.yellow,
-            size: 14,
-          ),
-        ),
-        // 스탯 표시 (Container + Icon)
-        Positioned(
-          bottom: 8,
-          left: 8,
-          child: Row(
-            children: [
-              Icon(Icons.flash_on, size: 12, color: Colors.red),
-              Text("40", style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
-              SizedBox(width: 8),
-              Icon(Icons.favorite, size: 12, color: Colors.green),
-              Text("30", style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
-            ],
+          bottom: 15,
+          right: 5,
+          child: Container(
+            width: 15,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.red[400],
+              borderRadius: BorderRadius.circular(1),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.red.withOpacity(0.6),
+                  blurRadius: 2,
+                ),
+              ],
+            ),
           ),
         ),
       ],
@@ -464,87 +673,178 @@ class IllustratedCard extends StatelessWidget {
   }
 
   Widget _buildRanranruIllustration() {
-    // 란란루 - Container 구조 + Icons 의미
+    // 란란루 - 실제 귀여운 생명체 디자인
     return Stack(
       children: [
-        // 마법적 배경 (Container의 깔끔함)
+        // 환상적 배경
         Container(
           decoration: BoxDecoration(
             gradient: RadialGradient(
               center: Alignment.center,
-              colors: [Colors.pink[200]!, Colors.purple[300]!],
+              colors: [Colors.pink[100]!, Colors.purple[200]!],
             ),
           ),
         ),
-        // 중앙 마법 구체 (Container 구조화)
+        // 란란루 몸체 (실제 생명체 모양)
         Center(
-          child: Container(
-            width: 55,
-            height: 55,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.pink[300]!, Colors.purple[400]!],
+          child: Stack(
+            children: [
+              // 둥근 몸통
+              Container(
+                width: 45,
+                height: 45,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.pink[200]!, Colors.pink[300]!],
+                  ),
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.white, width: 2),
+                ),
               ),
-              shape: BoxShape.circle,
-              border: Border.all(color: Colors.white, width: 2),
-            ),
-            child: Icon(
-              Icons.auto_fix_high, // 마법을 직관적으로 표현
-              color: Colors.white,
-              size: 30,
-            ),
+              // 귀여운 얼굴 - 눈
+              Positioned(
+                top: 12,
+                left: 12,
+                child: Container(
+                  width: 6,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 12,
+                right: 12,
+                child: Container(
+                  width: 6,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ),
+              // 기쁜 입
+              Positioned(
+                bottom: 12,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 12,
+                    height: 6,
+                    decoration: BoxDecoration(
+                      color: Colors.red[300],
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(6),
+                        bottomRight: Radius.circular(6),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              // 작은 팔다리
+              Positioned(
+                left: -5,
+                top: 20,
+                child: Container(
+                  width: 8,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.pink[200],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              Positioned(
+                right: -5,
+                top: 20,
+                child: Container(
+                  width: 8,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.pink[200],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              // 머리 장식 (작은 뿔 같은)
+              Positioned(
+                top: 5,
+                left: 18,
+                child: Container(
+                  width: 3,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.purple[300],
+                    borderRadius: BorderRadius.circular(1.5),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 5,
+                right: 18,
+                child: Container(
+                  width: 3,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.purple[300],
+                    borderRadius: BorderRadius.circular(1.5),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
-        // 기쁨 표시 (Icon 의미)
+        // 기쁨 표현 - 하트
         Positioned(
           top: 8,
           left: 8,
-          child: Icon(
-            Icons.sentiment_very_satisfied,
-            color: Colors.yellow,
-            size: 16,
+          child: Container(
+            width: 8,
+            height: 7,
+            child: CustomPaint(
+              painter: HeartPainter(Colors.red[300]!),
+            ),
           ),
         ),
-        // 마법 파티클들 (Icon)
+        // 마법 파티클들
         Positioned(
-          top: 12,
-          right: 15,
-          child: Icon(
-            Icons.auto_awesome,
-            color: Colors.yellow,
-            size: 12,
+          top: 15,
+          right: 12,
+          child: Container(
+            width: 4,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.yellow[300],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 18,
+          left: 10,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.purple[300],
+              shape: BoxShape.circle,
+            ),
           ),
         ),
         Positioned(
           bottom: 15,
-          left: 12,
-          child: Icon(
-            Icons.star_outline,
-            color: Colors.pink,
-            size: 10,
-          ),
-        ),
-        Positioned(
-          bottom: 12,
           right: 15,
-          child: Icon(
-            Icons.brightness_1,
-            color: Colors.white,
-            size: 8,
-          ),
-        ),
-        // 스탯 표시 (Container + Icon)
-        Positioned(
-          bottom: 8,
-          left: 8,
-          child: Row(
-            children: [
-              Icon(Icons.flash_on, size: 12, color: Colors.purple),
-              Text("15", style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
-              SizedBox(width: 8),
-              Icon(Icons.diamond, size: 12, color: Colors.yellow[600]),
-              Text("2", style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
-            ],
+          child: Container(
+            width: 2,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+            ),
           ),
         ),
       ],
@@ -552,105 +852,206 @@ class IllustratedCard extends StatelessWidget {
   }
 
   Widget _buildMoistureAcademyIllustration() {
-    // 보습학원 - Container 구조 + Icons 의미
+    // 보습학원 - 실제 건물 디자인
     return Stack(
       children: [
-        // 수분 배경 (Container의 깔끔함)
+        // 하늘 배경
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Colors.blue[100]!, Colors.cyan[200]!],
+              colors: [Colors.blue[200]!, Colors.blue[100]!],
             ),
           ),
         ),
-        // 중앙 건물 (Container 구조화)
+        // 학원 건물 (실제 건물 모양)
         Center(
-          child: Container(
-            width: 65,
-            height: 70,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Colors.blue[300]!, width: 2),
-            ),
-            child: Icon(
-              Icons.school, // 학교를 직관적으로 표현
-              color: Colors.blue[600],
-              size: 50,
-            ),
+          child: Stack(
+            children: [
+              // 건물 본체
+              Container(
+                width: 55,
+                height: 60,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.grey[300]!, width: 2),
+                ),
+              ),
+              // 건물 지붕
+              Positioned(
+                top: -8,
+                left: -3,
+                child: Container(
+                  width: 61,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.red[600],
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      topRight: Radius.circular(8),
+                    ),
+                  ),
+                ),
+              ),
+              // 창문들
+              Positioned(
+                top: 12,
+                left: 8,
+                child: Container(
+                  width: 12,
+                  height: 12,
+                  decoration: BoxDecoration(
+                    color: Colors.blue[100],
+                    border: Border.all(color: Colors.grey[400]!, width: 1),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 12,
+                right: 8,
+                child: Container(
+                  width: 12,
+                  height: 12,
+                  decoration: BoxDecoration(
+                    color: Colors.blue[100],
+                    border: Border.all(color: Colors.grey[400]!, width: 1),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 28,
+                left: 8,
+                child: Container(
+                  width: 12,
+                  height: 12,
+                  decoration: BoxDecoration(
+                    color: Colors.blue[100],
+                    border: Border.all(color: Colors.grey[400]!, width: 1),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 28,
+                right: 8,
+                child: Container(
+                  width: 12,
+                  height: 12,
+                  decoration: BoxDecoration(
+                    color: Colors.blue[100],
+                    border: Border.all(color: Colors.grey[400]!, width: 1),
+                  ),
+                ),
+              ),
+              // 출입문
+              Positioned(
+                bottom: 0,
+                left: 20,
+                child: Container(
+                  width: 15,
+                  height: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[300],
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      topRight: Radius.circular(8),
+                    ),
+                  ),
+                  child: Center(
+                    child: Container(
+                      width: 2,
+                      height: 2,
+                      decoration: BoxDecoration(
+                        color: Colors.yellow[600],
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
-        // 아카데미 표시 (Container)
+        // 학원 간판
         Positioned(
           top: 8,
           left: 0,
           right: 0,
           child: Center(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+              padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
               decoration: BoxDecoration(
                 color: Colors.blue[600],
                 borderRadius: BorderRadius.circular(4),
               ),
               child: Text(
-                "ACADEMY",
+                "보습학원",
                 style: TextStyle(color: Colors.white, fontSize: 8, fontWeight: FontWeight.bold),
               ),
             ),
           ),
         ),
-        // 수분/보습 표시 (Icon 의미)
-        Positioned(
-          top: 8,
-          right: 8,
-          child: Icon(
-            Icons.spa, // 스파/보습을 의미
-            color: Colors.green[400],
-            size: 16,
-          ),
-        ),
-        // 수분 시스템들 (Icon)
+        // 수분 효과 - 스프링클러
         Positioned(
           top: 10,
-          left: 10,
-          child: Icon(
-            Icons.water_drop,
-            color: Colors.blue[600],
-            size: 12,
+          right: 8,
+          child: Stack(
+            children: [
+              Container(
+                width: 6,
+                height: 6,
+                decoration: BoxDecoration(
+                  color: Colors.blue[600],
+                  shape: BoxShape.circle,
+                ),
+              ),
+              // 물방울들
+              Positioned(
+                top: 8,
+                left: -2,
+                child: Container(
+                  width: 2,
+                  height: 2,
+                  decoration: BoxDecoration(
+                    color: Colors.cyan[400],
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 8,
+                right: -2,
+                child: Container(
+                  width: 2,
+                  height: 2,
+                  decoration: BoxDecoration(
+                    color: Colors.cyan[400],
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
-        Positioned(
-          bottom: 20,
-          left: 12,
-          child: Icon(
-            Icons.opacity,
-            color: Colors.blue[400],
-            size: 14,
-          ),
-        ),
+        // 습도 표시계
         Positioned(
           bottom: 15,
-          right: 10,
-          child: Icon(
-            Icons.water_drop,
-            color: Colors.cyan[600],
-            size: 10,
-          ),
-        ),
-        // 스탯 표시 (Container + Icon)
-        Positioned(
-          bottom: 8,
           left: 8,
-          child: Row(
-            children: [
-              Icon(Icons.favorite, size: 12, color: Colors.green),
-              Text("20", style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
-              SizedBox(width: 8),
-              Icon(Icons.diamond, size: 12, color: Colors.yellow[600]),
-              Text("1", style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
-            ],
+          child: Container(
+            width: 8,
+            height: 12,
+            decoration: BoxDecoration(
+              color: Colors.green[600],
+              borderRadius: BorderRadius.circular(2),
+            ),
+            child: Container(
+              margin: EdgeInsets.all(1),
+              decoration: BoxDecoration(
+                color: Colors.green[300],
+                borderRadius: BorderRadius.circular(1),
+              ),
+            ),
           ),
         ),
       ],
