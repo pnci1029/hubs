@@ -228,6 +228,22 @@ class IllustratedCard extends StatelessWidget {
         return _buildRanranruIllustration();
       case "보습학원":
         return _buildMoistureAcademyIllustration();
+      case "히드라리스크":
+        return _buildHydraliskIllustration();
+      case "드라군":
+        return _buildDragoonIllustration();
+      case "벌룬":
+        return _buildBalloonIllustration();
+      case "허니 피그":
+        return _buildHoneyPigIllustration();
+      case "투명인간":
+        return _buildInvisibleManIllustration();
+      case "빵 셔틀":
+        return _buildBreadShuttleIllustration();
+      case "어글리 퀸":
+        return _buildUglyQueenIllustration();
+      case "파동권 마스터":
+        return _buildHadokenMasterIllustration();
       
       default:
         return Center(
@@ -1051,6 +1067,1248 @@ class IllustratedCard extends StatelessWidget {
                 color: Colors.green[300],
                 borderRadius: BorderRadius.circular(1),
               ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildHydraliskIllustration() {
+    // 히드라리스크 - 실제 괴물/뱀 형태 디자인
+    return Stack(
+      children: [
+        // 어두운 배경 (저그 느낌)
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.purple[900]!, Colors.black],
+            ),
+          ),
+        ),
+        // 히드라리스크 몸체 (실제 뱀/괴물 모양)
+        Center(
+          child: Stack(
+            children: [
+              // 길쭉한 몸통
+              Container(
+                width: 35,
+                height: 65,
+                decoration: BoxDecoration(
+                  color: Colors.purple[700],
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(color: Colors.purple[500]!, width: 2),
+                ),
+              ),
+              // 머리 부분
+              Positioned(
+                top: -5,
+                left: 5,
+                child: Container(
+                  width: 25,
+                  height: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.purple[600],
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              // 뾰족한 등골
+              Positioned(
+                top: 8,
+                left: 15,
+                child: Container(
+                  width: 5,
+                  height: 40,
+                  child: Column(
+                    children: List.generate(6, (index) => Expanded(
+                      child: Container(
+                        margin: EdgeInsets.symmetric(vertical: 1),
+                        decoration: BoxDecoration(
+                          color: Colors.green[600],
+                          borderRadius: BorderRadius.circular(2.5),
+                        ),
+                      ),
+                    )),
+                  ),
+                ),
+              ),
+              // 무서운 눈
+              Positioned(
+                top: 2,
+                left: 8,
+                child: Container(
+                  width: 3,
+                  height: 3,
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.red.withOpacity(0.7),
+                        blurRadius: 2,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 2,
+                right: 8,
+                child: Container(
+                  width: 3,
+                  height: 3,
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.red.withOpacity(0.7),
+                        blurRadius: 2,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              // 바늘 발사구
+              Positioned(
+                top: 5,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 8,
+                    height: 3,
+                    decoration: BoxDecoration(
+                      color: Colors.green[800],
+                      borderRadius: BorderRadius.circular(1.5),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 독성 효과
+        Positioned(
+          top: 10,
+          right: 8,
+          child: Container(
+            width: 6,
+            height: 6,
+            decoration: BoxDecoration(
+              color: Colors.green[400],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 20,
+          left: 8,
+          child: Container(
+            width: 4,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.purple[300],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildDragoonIllustration() {
+    // 드라군 - 실제 프로토스 기계 유닛 디자인
+    return Stack(
+      children: [
+        // 프로토스 배경
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.blue[800]!, Colors.indigo[900]!],
+            ),
+          ),
+        ),
+        // 드라군 기계 몸체
+        Center(
+          child: Stack(
+            children: [
+              // 하반신 다리 부분
+              Container(
+                width: 55,
+                height: 70,
+                decoration: BoxDecoration(
+                  color: Colors.yellow[600],
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.blue[300]!, width: 2),
+                ),
+              ),
+              // 상반신 조종석
+              Positioned(
+                top: -10,
+                left: 10,
+                child: Container(
+                  width: 35,
+                  height: 25,
+                  decoration: BoxDecoration(
+                    color: Colors.blue[600],
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Colors.cyan, width: 1),
+                  ),
+                ),
+              ),
+              // 로봇 다리들
+              Positioned(
+                bottom: -5,
+                left: 5,
+                child: Container(
+                  width: 8,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: -5,
+                right: 5,
+                child: Container(
+                  width: 8,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: -5,
+                left: 20,
+                child: Container(
+                  width: 8,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: -5,
+                right: 20,
+                child: Container(
+                  width: 8,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+              // 주포
+              Positioned(
+                left: -8,
+                top: 20,
+                child: Container(
+                  width: 20,
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[700],
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ),
+              // 프로토스 크리스탈
+              Positioned(
+                top: -5,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 8,
+                    height: 8,
+                    decoration: BoxDecoration(
+                      color: Colors.cyan[400],
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.cyan.withOpacity(0.7),
+                          blurRadius: 3,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 에너지 효과
+        Positioned(
+          top: 8,
+          right: 10,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.blue[300],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildBalloonIllustration() {
+    // 벌룬 - 실제 풍선 폭탄 디자인
+    return Stack(
+      children: [
+        // 하늘 배경
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.lightBlue[200]!, Colors.blue[300]!],
+            ),
+          ),
+        ),
+        // 풍선 본체
+        Center(
+          child: Stack(
+            children: [
+              // 풍선 몸통
+              Container(
+                width: 45,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.red[500],
+                  borderRadius: BorderRadius.circular(25),
+                  border: Border.all(color: Colors.red[700]!, width: 2),
+                ),
+              ),
+              // 풍선 하이라이트
+              Positioned(
+                top: 8,
+                left: 10,
+                child: Container(
+                  width: 12,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.4),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                ),
+              ),
+              // 폭탄 심지
+              Positioned(
+                top: -8,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 2,
+                    height: 12,
+                    decoration: BoxDecoration(
+                      color: Colors.brown[600],
+                      borderRadius: BorderRadius.circular(1),
+                    ),
+                  ),
+                ),
+              ),
+              // 불꽃
+              Positioned(
+                top: -12,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 4,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: Colors.orange[600],
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.orange.withOpacity(0.7),
+                          blurRadius: 2,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              // 바구니
+              Positioned(
+                bottom: -15,
+                left: 5,
+                child: Container(
+                  width: 35,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[400],
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 구름들
+        Positioned(
+          top: 12,
+          left: 8,
+          child: Container(
+            width: 8,
+            height: 5,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.7),
+              borderRadius: BorderRadius.circular(2.5),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 15,
+          right: 10,
+          child: Container(
+            width: 6,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.5),
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildHoneyPigIllustration() {
+    // 허니 피그 - 실제 꿀돼지 생명체 디자인
+    return Stack(
+      children: [
+        // 목초지 배경
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.green[200]!, Colors.green[300]!],
+            ),
+          ),
+        ),
+        // 꿀돼지 몸체
+        Center(
+          child: Stack(
+            children: [
+              // 돼지 몸통
+              Container(
+                width: 50,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Colors.pink[300],
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: Colors.pink[400]!, width: 2),
+                ),
+              ),
+              // 돼지 머리
+              Positioned(
+                left: -8,
+                top: 5,
+                child: Container(
+                  width: 25,
+                  height: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.pink[300],
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              ),
+              // 돼지 코
+              Positioned(
+                left: -5,
+                top: 12,
+                child: Container(
+                  width: 8,
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: Colors.pink[400],
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 2,
+                        height: 2,
+                        margin: EdgeInsets.only(left: 1, top: 2),
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                      Container(
+                        width: 2,
+                        height: 2,
+                        margin: EdgeInsets.only(left: 2, top: 2),
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              // 돼지 눈
+              Positioned(
+                left: 5,
+                top: 8,
+                child: Container(
+                  width: 4,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+              // 돼지 귀
+              Positioned(
+                left: 8,
+                top: 2,
+                child: Container(
+                  width: 6,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.pink[200],
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ),
+              // 꿀 단지 (등에 업고 있는)
+              Positioned(
+                top: -5,
+                right: 5,
+                child: Container(
+                  width: 15,
+                  height: 18,
+                  decoration: BoxDecoration(
+                    color: Colors.amber[600],
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(color: Colors.brown[400]!, width: 1),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "꿀",
+                      style: TextStyle(color: Colors.brown, fontSize: 8),
+                    ),
+                  ),
+                ),
+              ),
+              // 다리들
+              Positioned(
+                bottom: -5,
+                left: 8,
+                child: Container(
+                  width: 5,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.pink[400],
+                    borderRadius: BorderRadius.circular(2.5),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: -5,
+                right: 8,
+                child: Container(
+                  width: 5,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.pink[400],
+                    borderRadius: BorderRadius.circular(2.5),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 꿀 방울들
+        Positioned(
+          top: 10,
+          right: 8,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.amber[400],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 15,
+          left: 10,
+          child: Container(
+            width: 2,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.amber[300],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildInvisibleManIllustration() {
+    // 투명인간 - 실제 투명한 인간 형태 디자인
+    return Stack(
+      children: [
+        // 어두운 배경
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.grey[800]!, Colors.grey[900]!],
+            ),
+          ),
+        ),
+        // 투명인간 윤곽 (점선으로 표현)
+        Center(
+          child: Stack(
+            children: [
+              // 몸통 윤곽 (점선 효과)
+              Container(
+                width: 40,
+                height: 60,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.white.withOpacity(0.3),
+                    width: 2,
+                  ),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              // 머리 윤곽
+              Positioned(
+                top: -15,
+                left: 10,
+                child: Container(
+                  width: 20,
+                  height: 20,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.4),
+                      width: 2,
+                    ),
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+              // 팔 윤곽
+              Positioned(
+                left: -8,
+                top: 10,
+                child: Container(
+                  width: 8,
+                  height: 25,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.2),
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+              Positioned(
+                right: -8,
+                top: 10,
+                child: Container(
+                  width: 8,
+                  height: 25,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.2),
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+              // 다리 윤곽
+              Positioned(
+                bottom: -10,
+                left: 12,
+                child: Container(
+                  width: 6,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.3),
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: -10,
+                right: 12,
+                child: Container(
+                  width: 6,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.3),
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 투명 효과 (반짝임)
+        Positioned(
+          top: 15,
+          left: 12,
+          child: Container(
+            width: 4,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.6),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 20,
+          right: 15,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.cyan.withOpacity(0.4),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          top: 25,
+          right: 20,
+          child: Container(
+            width: 2,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.blue.withOpacity(0.5),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildBreadShuttleIllustration() {
+    // 빵 셔틀 - 실제 빵 배달 차량 디자인
+    return Stack(
+      children: [
+        // 도로 배경
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.grey[300]!, Colors.grey[400]!],
+            ),
+          ),
+        ),
+        // 배달 차량
+        Center(
+          child: Stack(
+            children: [
+              // 차량 본체
+              Container(
+                width: 55,
+                height: 35,
+                decoration: BoxDecoration(
+                  color: Colors.yellow[600],
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.orange[600]!, width: 2),
+                ),
+              ),
+              // 운전석
+              Positioned(
+                left: 5,
+                top: 5,
+                child: Container(
+                  width: 15,
+                  height: 25,
+                  decoration: BoxDecoration(
+                    color: Colors.blue[200],
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+              // 바퀴들
+              Positioned(
+                bottom: -8,
+                left: 8,
+                child: Container(
+                  width: 12,
+                  height: 12,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.grey, width: 1),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: -8,
+                right: 8,
+                child: Container(
+                  width: 12,
+                  height: 12,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.grey, width: 1),
+                  ),
+                ),
+              ),
+              // 빵 적재함
+              Positioned(
+                right: 5,
+                top: 8,
+                child: Container(
+                  width: 25,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[300],
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+              // 빵들
+              Positioned(
+                right: 7,
+                top: 10,
+                child: Container(
+                  width: 6,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[600],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              Positioned(
+                right: 15,
+                top: 10,
+                child: Container(
+                  width: 6,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[500],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              Positioned(
+                right: 23,
+                top: 10,
+                child: Container(
+                  width: 6,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[700],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 배달 표시
+        Positioned(
+          top: 8,
+          left: 8,
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 3, vertical: 1),
+            decoration: BoxDecoration(
+              color: Colors.red[600],
+              borderRadius: BorderRadius.circular(3),
+            ),
+            child: Text(
+              "배달",
+              style: TextStyle(color: Colors.white, fontSize: 6, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+        // 속도 표현
+        Positioned(
+          top: 15,
+          left: 5,
+          child: Container(
+            width: 8,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.7),
+              borderRadius: BorderRadius.circular(1),
+            ),
+          ),
+        ),
+        Positioned(
+          top: 20,
+          left: 3,
+          child: Container(
+            width: 6,
+            height: 1,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.5),
+              borderRadius: BorderRadius.circular(0.5),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildUglyQueenIllustration() {
+    // 어글리 퀸 - 실제 무서운 여왕 생명체 디자인
+    return Stack(
+      children: [
+        // 어두운 성 배경
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.purple[900]!, Colors.black],
+            ),
+          ),
+        ),
+        // 어글리 퀸 몸체
+        Center(
+          child: Stack(
+            children: [
+              // 여왕 드레스
+              Container(
+                width: 50,
+                height: 55,
+                decoration: BoxDecoration(
+                  color: Colors.purple[800],
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25),
+                    topRight: Radius.circular(25),
+                    bottomLeft: Radius.circular(8),
+                    bottomRight: Radius.circular(8),
+                  ),
+                  border: Border.all(color: Colors.purple[600]!, width: 2),
+                ),
+              ),
+              // 무서운 얼굴
+              Positioned(
+                top: 5,
+                left: 12,
+                child: Container(
+                  width: 26,
+                  height: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              // 빨간 눈
+              Positioned(
+                top: 10,
+                left: 18,
+                child: Container(
+                  width: 4,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.red[600],
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.red.withOpacity(0.7),
+                        blurRadius: 2,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 10,
+                right: 18,
+                child: Container(
+                  width: 4,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.red[600],
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.red.withOpacity(0.7),
+                        blurRadius: 2,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              // 사악한 입
+              Positioned(
+                top: 18,
+                left: 20,
+                child: Container(
+                  width: 10,
+                  height: 3,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(1.5),
+                  ),
+                ),
+              ),
+              // 왕관 (어두운)
+              Positioned(
+                top: -8,
+                left: 10,
+                child: Container(
+                  width: 30,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[800],
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      topRight: Radius.circular(8),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        width: 3,
+                        height: 8,
+                        decoration: BoxDecoration(
+                          color: Colors.red[800],
+                          borderRadius: BorderRadius.circular(1.5),
+                        ),
+                      ),
+                      Container(
+                        width: 3,
+                        height: 12,
+                        decoration: BoxDecoration(
+                          color: Colors.red[800],
+                          borderRadius: BorderRadius.circular(1.5),
+                        ),
+                      ),
+                      Container(
+                        width: 3,
+                        height: 8,
+                        decoration: BoxDecoration(
+                          color: Colors.red[800],
+                          borderRadius: BorderRadius.circular(1.5),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 어둠의 오라
+        Positioned(
+          top: 12,
+          left: 8,
+          child: Container(
+            width: 6,
+            height: 6,
+            decoration: BoxDecoration(
+              color: Colors.purple[400]?.withOpacity(0.6),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 15,
+          right: 10,
+          child: Container(
+            width: 4,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.red[400]?.withOpacity(0.7),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildHadokenMasterIllustration() {
+    // 파동권 마스터 - 실제 격투가 형태 디자인
+    return Stack(
+      children: [
+        // 도장 배경
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.brown[200]!, Colors.brown[400]!],
+            ),
+          ),
+        ),
+        // 격투가 몸체
+        Center(
+          child: Stack(
+            children: [
+              // 도복
+              Container(
+                width: 45,
+                height: 60,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.grey[300]!, width: 2),
+                ),
+              ),
+              // 머리
+              Positioned(
+                top: -8,
+                left: 12,
+                child: Container(
+                  width: 21,
+                  height: 18,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[300],
+                    borderRadius: BorderRadius.circular(9),
+                  ),
+                ),
+              ),
+              // 얼굴
+              Positioned(
+                top: -3,
+                left: 18,
+                child: Container(
+                  width: 3,
+                  height: 2,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(1),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: -3,
+                right: 18,
+                child: Container(
+                  width: 3,
+                  height: 2,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(1),
+                  ),
+                ),
+              ),
+              // 띠 (검은 띠)
+              Positioned(
+                top: 25,
+                left: 5,
+                child: Container(
+                  width: 35,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+              // 파동권 포즈 - 손
+              Positioned(
+                right: -8,
+                top: 15,
+                child: Container(
+                  width: 12,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[300],
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+              // 에너지 구체 (파동권)
+              Positioned(
+                right: -15,
+                top: 12,
+                child: Container(
+                  width: 15,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    gradient: RadialGradient(
+                      colors: [Colors.white, Colors.blue[300]!],
+                    ),
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.blue.withOpacity(0.6),
+                        blurRadius: 4,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              // 다리
+              Positioned(
+                bottom: -5,
+                left: 12,
+                child: Container(
+                  width: 8,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: -5,
+                right: 12,
+                child: Container(
+                  width: 8,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 기 에너지 효과
+        Positioned(
+          top: 10,
+          left: 5,
+          child: Container(
+            width: 5,
+            height: 5,
+            decoration: BoxDecoration(
+              color: Colors.yellow[300]?.withOpacity(0.7),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 20,
+          right: 5,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.blue[300]?.withOpacity(0.6),
+              shape: BoxShape.circle,
             ),
           ),
         ),
