@@ -35,13 +35,14 @@ class TestCardScreen extends StatelessWidget {
             SizedBox(height: 20),
             
             Wrap(
-              spacing: 20,
-              runSpacing: 20,
+              spacing: 15,
+              runSpacing: 15,
               alignment: WrapAlignment.center,
               children: [
+                // 기존 4개 카드
                 Container(
-                  width: 200,
-                  height: 280,
+                  width: 150,
+                  height: 210,
                   child: IllustratedCard(
                     card: CardModel(
                       id: "showcase1",
@@ -52,14 +53,13 @@ class TestCardScreen extends StatelessWidget {
                       attack: 45,
                       hp: 60,
                     ),
-                    width: 200,
-                    height: 280,
+                    width: 150,
+                    height: 210,
                   ),
                 ),
-                
                 Container(
-                  width: 200,
-                  height: 280,
+                  width: 150,
+                  height: 210,
                   child: IllustratedCard(
                     card: CardModel(
                       id: "showcase2",
@@ -70,14 +70,13 @@ class TestCardScreen extends StatelessWidget {
                       attack: 40,
                       hp: 30,
                     ),
-                    width: 200,
-                    height: 280,
+                    width: 150,
+                    height: 210,
                   ),
                 ),
-                
                 Container(
-                  width: 200,
-                  height: 280,
+                  width: 150,
+                  height: 210,
                   child: IllustratedCard(
                     card: CardModel(
                       id: "showcase3",
@@ -88,14 +87,13 @@ class TestCardScreen extends StatelessWidget {
                       mineral: 2,
                       attack: 15,
                     ),
-                    width: 200,
-                    height: 280,
+                    width: 150,
+                    height: 210,
                   ),
                 ),
-                
                 Container(
-                  width: 200,
-                  height: 280,
+                  width: 150,
+                  height: 210,
                   child: IllustratedCard(
                     card: CardModel(
                       id: "showcase4",
@@ -106,8 +104,146 @@ class TestCardScreen extends StatelessWidget {
                       hp: 20,
                       mineral: 1,
                     ),
-                    width: 200,
-                    height: 280,
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+                
+                // 새로 추가된 8개 카드
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase5",
+                      name: "히드라리스크",
+                      description: "독성 가시를 발사하는 저그 생명체",
+                      cost: 5,
+                      type: CardType.unit,
+                      attack: 35,
+                      hp: 25,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase6",
+                      name: "드라군",
+                      description: "프로토스 기계 유닛. 원거리 공격 전문",
+                      cost: 6,
+                      type: CardType.unit,
+                      attack: 30,
+                      hp: 40,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase7",
+                      name: "벌룬",
+                      description: "하늘을 나는 폭탄 풍선",
+                      cost: 4,
+                      type: CardType.unit,
+                      attack: 25,
+                      hp: 15,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase8",
+                      name: "허니 피그",
+                      description: "꿀을 만드는 특별한 돼지",
+                      cost: 3,
+                      type: CardType.resource,
+                      hp: 20,
+                      mineral: 3,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase9",
+                      name: "투명인간",
+                      description: "보이지 않는 신비한 존재",
+                      cost: 2,
+                      type: CardType.effect,
+                      attack: 10,
+                      hp: 5,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase10",
+                      name: "빵 셔틀",
+                      description: "빵을 배달하는 고속 차량",
+                      cost: 3,
+                      type: CardType.resource,
+                      attack: 5,
+                      mineral: 2,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase11",
+                      name: "어글리 퀸",
+                      description: "어둠의 힘을 가진 무서운 여왕",
+                      cost: 9,
+                      type: CardType.unit,
+                      attack: 50,
+                      hp: 35,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase12",
+                      name: "파동권 마스터",
+                      description: "에너지 구체를 발사하는 격투가",
+                      cost: 6,
+                      type: CardType.unit,
+                      attack: 35,
+                      hp: 30,
+                    ),
+                    width: 150,
+                    height: 210,
                   ),
                 ),
               ],
