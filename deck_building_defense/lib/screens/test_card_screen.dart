@@ -246,11 +246,84 @@ class TestCardScreen extends StatelessWidget {
                     height: 210,
                   ),
                 ),
+                
+                // 새로 추가된 4개 카드
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase13",
+                      name: "배틀크루저",
+                      description: "테란의 최상급 우주 전함. 막강한 화력과 방어력을 자랑합니다",
+                      cost: 11,
+                      type: CardType.unit,
+                      attack: 80,
+                      hp: 3,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase14",
+                      name: "시베리아 눈사람",
+                      description: "러시아에선 눈사람이 당신을 녹입니다!",
+                      cost: 6,
+                      type: CardType.unit,
+                      attack: 40,
+                      hp: 2,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase15",
+                      name: "행운의 고양이",
+                      description: "어떻게 고양이가 다른 일꾼들보다 돈을 훨씬 더 많이 버냐고요?",
+                      cost: 9,
+                      type: CardType.resource,
+                      mineral: 5,
+                      hp: 1,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase16",
+                      name: "랜덤박스",
+                      description: "이 유즈맵도 랜덤가챠에 타락하고 마는 날이 결국 와버린 것입니다",
+                      cost: 4,
+                      type: CardType.effect,
+                      hp: 1,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
               ],
             ),
             
             SizedBox(height: 40),
             
+            Text(
+              "총 16개 카드 일러스트 완성!",
+              style: TextStyle(color: Colors.yellow, fontSize: 18, fontWeight: FontWeight.bold),
+            ),
             
             SizedBox(height: 20),
             
