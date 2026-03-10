@@ -61,7 +61,7 @@ class PremiumCardIllustrations {
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Colors.purple[100]!, Colors.gold[100] ?? Colors.yellow[100]!],
+              colors: [Colors.purple[100]!, Colors.yellow[100]!],
             ),
           ),
           child: Center(
@@ -92,7 +92,7 @@ class PremiumCardIllustrations {
           child: Container(
             decoration: BoxDecoration(
               border: Border.all(
-                color: Colors.gold[300] ?? Colors.yellow[600]!,
+                color: Colors.yellow[600]!,
                 width: 2,
               ),
               borderRadius: BorderRadius.circular(6),
