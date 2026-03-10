@@ -320,9 +320,135 @@ class TestCardScreen extends StatelessWidget {
             
             SizedBox(height: 40),
             
+            // 새로운 근본모드 완성 카드들 (6개)
+            SizedBox(height: 20),
+            
             Text(
-              "총 16개 카드 일러스트 완성!",
+              "🎉 근본모드 완성 카드들",
+              style: TextStyle(color: Colors.green, fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            
+            SizedBox(height: 10),
+            
+            Wrap(
+              spacing: 10,
+              runSpacing: 10,
+              children: [
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase17",
+                      name: "쩝쩝박사",
+                      description: "최고의 요리 전문가. 영양가 있는 음식을 만들어줍니다",
+                      cost: 5,
+                      type: CardType.effect,
+                      attack: 25,
+                      hp: 2,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase18",
+                      name: "매직 홈쇼핑",
+                      description: "마법 같은 특가 상품을 판매합니다. 지금 주문하세요!",
+                      cost: 6,
+                      type: CardType.effect,
+                      mineral: 3,
+                      hp: 1,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase19",
+                      name: "버튜버",
+                      description: "버추얼 유튜버로 활동하며 인기를 끌고 있습니다",
+                      cost: 4,
+                      type: CardType.effect,
+                      mineral: 2,
+                      hp: 2,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase20",
+                      name: "\"3\"",
+                      description: "신비로운 숫자 3. 그 의미는 아무도 모릅니다",
+                      cost: 3,
+                      type: CardType.magic,
+                      attack: 33,
+                      hp: 3,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase21",
+                      name: "초글링",
+                      description: "아직 미숙한 초보 저글링. 하지만 성장 가능성이 무궁무진합니다",
+                      cost: 1,
+                      type: CardType.unit,
+                      attack: 8,
+                      hp: 1,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 210,
+                  child: IllustratedCard(
+                    card: CardModel(
+                      id: "showcase22",
+                      name: "임포스터",
+                      description: "의심스러운 정체불명의 존재. 과연 누구일까요?",
+                      cost: 7,
+                      type: CardType.effect,
+                      attack: 35,
+                      hp: 2,
+                    ),
+                    width: 150,
+                    height: 210,
+                  ),
+                ),
+              ],
+            ),
+
+            SizedBox(height: 40),
+
+            Text(
+              "🎊 총 22개 카드 일러스트 완성!",
               style: TextStyle(color: Colors.yellow, fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            
+            Text(
+              "✅ 기본 7종 + 근본모드 18종(정교한 일러스트) + 프리미엄 4종",
+              style: TextStyle(color: Colors.cyan, fontSize: 14),
             ),
             
             SizedBox(height: 20),
