@@ -3503,6 +3503,435 @@ class AdvancedCardIllustrations {
       ],
     );
   }
-  static Widget _buildInvisibleManIllustration() => _buildTodoIllustration("👻🫥", "투명인간");
-  static Widget _buildHadokenMasterIllustration() => _buildTodoIllustration("👊💥", "파동권마스터");
+  static Widget _buildInvisibleManIllustration() {
+    // 투명인간 - 보이지 않는 신비한 존재
+    return Stack(
+      children: [
+        // 신비로운 배경
+        Container(
+          decoration: BoxDecoration(
+            gradient: RadialGradient(
+              center: Alignment.center,
+              colors: [Colors.grey[600]!, Colors.grey[800]!, Colors.black],
+            ),
+          ),
+        ),
+        // 투명인간 실루엣
+        Center(
+          child: Stack(
+            children: [
+              // 희미한 윤곽선 (몸체)
+              Container(
+                width: 35,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    color: Colors.white.withOpacity(0.3),
+                    width: 2,
+                  ),
+                ),
+              ),
+              // 머리 윤곽
+              Positioned(
+                top: -8,
+                left: 8,
+                right: 8,
+                child: Container(
+                  width: 20,
+                  height: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.05),
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.2),
+                      width: 1,
+                    ),
+                  ),
+                ),
+              ),
+              // 신비한 눈 (유일하게 보이는 부분)
+              Positioned(
+                top: -2,
+                left: 12,
+                child: Container(
+                  width: 4,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.cyan[300],
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.cyan.withOpacity(0.8),
+                        blurRadius: 6,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                top: -2,
+                right: 12,
+                child: Container(
+                  width: 4,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.cyan[300],
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.cyan.withOpacity(0.8),
+                        blurRadius: 6,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              // 희미한 팔 윤곽 (왼쪽)
+              Positioned(
+                left: -8,
+                top: 15,
+                child: Container(
+                  width: 12,
+                  height: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.05),
+                    borderRadius: BorderRadius.circular(6),
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.15),
+                      width: 1,
+                    ),
+                  ),
+                ),
+              ),
+              // 희미한 팔 윤곽 (오른쪽)
+              Positioned(
+                right: -8,
+                top: 15,
+                child: Container(
+                  width: 12,
+                  height: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.05),
+                    borderRadius: BorderRadius.circular(6),
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.15),
+                      width: 1,
+                    ),
+                  ),
+                ),
+              ),
+              // 투명 효과 파티클
+              Positioned(
+                top: 20,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 6,
+                    height: 6,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.3),
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 신비한 파티클 효과들
+        Positioned(
+          top: 10,
+          left: 8,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.cyan[400]!.withOpacity(0.6),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.cyan.withOpacity(0.4),
+                  blurRadius: 3,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          top: 25,
+          right: 12,
+          child: Container(
+            width: 2,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.7),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 15,
+          left: 15,
+          child: Container(
+            width: 4,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.blue[300]!.withOpacity(0.5),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 20,
+          right: 8,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.purple[300]!.withOpacity(0.4),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+  static Widget _buildHadokenMasterIllustration() {
+    // 파동권 마스터 - 에너지 구체를 발사하는 격투가
+    return Stack(
+      children: [
+        // 무술 도장 배경
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.orange[200]!, Colors.red[300]!, Colors.purple[800]!],
+            ),
+          ),
+        ),
+        // 파동권 마스터 몸체
+        Center(
+          child: Stack(
+            children: [
+              // 메인 바디 (격투가 몸통)
+              Container(
+                width: 25,
+                height: 45,
+                decoration: BoxDecoration(
+                  color: Colors.orange[600],
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.orange[800]!, width: 2),
+                ),
+              ),
+              // 머리
+              Positioned(
+                top: -8,
+                left: 3,
+                right: 3,
+                child: Container(
+                  width: 20,
+                  height: 18,
+                  decoration: BoxDecoration(
+                    color: Colors.orange[700],
+                    borderRadius: BorderRadius.circular(9),
+                    border: Border.all(color: Colors.orange[900]!, width: 2),
+                  ),
+                ),
+              ),
+              // 머리띠
+              Positioned(
+                top: -5,
+                left: 5,
+                right: 5,
+                child: Container(
+                  width: 15,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.red[600],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              // 눈 (집중한 표정)
+              Positioned(
+                top: -2,
+                left: 7,
+                child: Container(
+                  width: 3,
+                  height: 5,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(1.5),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: -2,
+                right: 7,
+                child: Container(
+                  width: 3,
+                  height: 5,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(1.5),
+                  ),
+                ),
+              ),
+              // 왼쪽 팔 (파동권 준비 자세)
+              Positioned(
+                left: -10,
+                top: 12,
+                child: Container(
+                  width: 15,
+                  height: 18,
+                  decoration: BoxDecoration(
+                    color: Colors.orange[700],
+                    borderRadius: BorderRadius.circular(7),
+                    border: Border.all(color: Colors.orange[900]!, width: 1),
+                  ),
+                ),
+              ),
+              // 오른쪽 팔 (파동권 발사)
+              Positioned(
+                right: -15,
+                top: 8,
+                child: Container(
+                  width: 20,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.orange[600],
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(color: Colors.orange[800]!, width: 1),
+                  ),
+                ),
+              ),
+              // 파동권 에너지 구체
+              Positioned(
+                right: -25,
+                top: 12,
+                child: Container(
+                  width: 12,
+                  height: 12,
+                  decoration: BoxDecoration(
+                    color: Colors.blue[300],
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.blue.withOpacity(0.8),
+                        blurRadius: 8,
+                      ),
+                    ],
+                  ),
+                  child: Center(
+                    child: Container(
+                      width: 6,
+                      height: 6,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              // 에너지 흐름 (몸에서 나오는 기)
+              Positioned(
+                top: 15,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 8,
+                    height: 8,
+                    decoration: BoxDecoration(
+                      color: Colors.cyan[400]!.withOpacity(0.7),
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.cyan.withOpacity(0.5),
+                          blurRadius: 6,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              // 격투복 벨트
+              Positioned(
+                top: 25,
+                left: 2,
+                right: 2,
+                child: Container(
+                  height: 5,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(2.5),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 에너지 파티클 효과들
+        Positioned(
+          top: 8,
+          left: 5,
+          child: Container(
+            width: 4,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.yellow[500],
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.yellow.withOpacity(0.6),
+                  blurRadius: 3,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          top: 20,
+          right: 8,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.blue[400],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 15,
+          left: 10,
+          child: Container(
+            width: 5,
+            height: 5,
+            decoration: BoxDecoration(
+              color: Colors.purple[400]!.withOpacity(0.7),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 25,
+          right: 15,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.orange[400],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 }
