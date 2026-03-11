@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'screens/game_screen.dart';
 import 'providers/game_provider.dart';
@@ -35,7 +36,11 @@ class MyApp extends StatelessWidget {
       create: (context) => GameProvider(),
       child: MaterialApp(
         title: '덱 빌딩 디펜스',
-        theme: PremiumTheme.theme,
+        theme: PremiumTheme.theme.copyWith(
+          textTheme: GoogleFonts.notoSansKrTextTheme(
+            PremiumTheme.theme.textTheme,
+          ),
+        ),
         debugShowCheckedModeBanner: false,
         home: const GameScreen(),
       ),
