@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../models/card_model.dart';
 import '../../enums/game_enums.dart';
+import 'advanced_illustrations.dart';
 
 // 기본 카드 7종 일러스트 클래스
 class BasicCardIllustrations {
@@ -29,14 +30,14 @@ class BasicCardIllustrations {
       case "드론":
         return _buildDroneIllustration();
       case "히드라리스크":
-        return _buildEmojiIllustration("🐍💀");
+        return AdvancedCardIllustrations.buildIllustration(card);
       case "프로브":
         return _buildProbeIllustration();
       case "드라군":
-        return _buildEmojiIllustration("🤖🚀");
+        return AdvancedCardIllustrations.buildIllustration(card);
       case "잉여":
       case "리던던트":
-        return _buildEmojiIllustration("♻️🔄");
+        return _buildRedundantIllustration();
       default:
         return _buildDefaultIllustration();
     }
@@ -907,6 +908,208 @@ class BasicCardIllustrations {
             decoration: BoxDecoration(
               color: Colors.teal[300],
               shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  static Widget _buildRedundantIllustration() {
+    // 잉여/리던던트 - 쓰레기 효과 카드
+    return Stack(
+      children: [
+        // 폐기물 처리장 배경
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.grey[300]!, Colors.brown[200]!, Colors.grey[700]!],
+            ),
+          ),
+        ),
+        // 재활용 컨테이너
+        Center(
+          child: Stack(
+            children: [
+              // 메인 쓰레기통
+              Container(
+                width: 40,
+                height: 45,
+                decoration: BoxDecoration(
+                  color: Colors.green[600],
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.green[800]!, width: 2),
+                ),
+              ),
+              // 뚜껑
+              Positioned(
+                top: -8,
+                left: -5,
+                right: -5,
+                child: Container(
+                  width: 50,
+                  height: 12,
+                  decoration: BoxDecoration(
+                    color: Colors.green[700],
+                    borderRadius: BorderRadius.circular(6),
+                    border: Border.all(color: Colors.green[900]!, width: 2),
+                  ),
+                ),
+              ),
+              // 재활용 마크
+              Positioned(
+                top: 8,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 20,
+                    height: 20,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.green[800]!, width: 2),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "♻",
+                        style: TextStyle(
+                          color: Colors.green[800],
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              // 손잡이
+              Positioned(
+                top: 5,
+                right: -8,
+                child: Container(
+                  width: 8,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    borderRadius: BorderRadius.circular(4),
+                    border: Border.all(color: Colors.grey[800]!, width: 1),
+                  ),
+                ),
+              ),
+              // 쓰레기 조각들 (내부)
+              Positioned(
+                top: 30,
+                left: 8,
+                child: Container(
+                  width: 6,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[400],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 32,
+                right: 10,
+                child: Container(
+                  width: 5,
+                  height: 3,
+                  decoration: BoxDecoration(
+                    color: Colors.blue[300],
+                    borderRadius: BorderRadius.circular(1.5),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 8,
+                left: 12,
+                child: Container(
+                  width: 4,
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: Colors.red[300],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 흩어진 쓰레기들
+        Positioned(
+          top: 10,
+          left: 8,
+          child: Container(
+            width: 4,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.orange[400],
+              borderRadius: BorderRadius.circular(1.5),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 12,
+          right: 5,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.purple[300],
+              borderRadius: BorderRadius.circular(1.5),
+            ),
+          ),
+        ),
+        Positioned(
+          top: 25,
+          left: 5,
+          child: Container(
+            width: 5,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.grey[500],
+              borderRadius: BorderRadius.circular(1),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 20,
+          left: 12,
+          child: Container(
+            width: 3,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.yellow[600],
+              borderRadius: BorderRadius.circular(1.5),
+            ),
+          ),
+        ),
+        // 재활용 화살표 효과
+        Positioned(
+          top: 15,
+          right: 8,
+          child: Container(
+            width: 8,
+            height: 1,
+            decoration: BoxDecoration(
+              color: Colors.green[400],
+              borderRadius: BorderRadius.circular(0.5),
+            ),
+          ),
+        ),
+        Positioned(
+          top: 17,
+          right: 6,
+          child: Container(
+            width: 1,
+            height: 6,
+            decoration: BoxDecoration(
+              color: Colors.green[400],
+              borderRadius: BorderRadius.circular(0.5),
             ),
           ),
         ),
