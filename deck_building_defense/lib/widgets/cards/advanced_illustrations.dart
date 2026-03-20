@@ -98,7 +98,7 @@ class AdvancedCardIllustrations {
         return _buildComplexIllustration();
       case "떡상방앗간":
       case "정미소":
-        return _buildEmojiIllustration("🌾⚙️");
+        return _buildRiceMillIllustration();
       case "핵쟁이 스나이퍼":
       case "핵 스나이퍼":
         return _buildSniperIllustration();
@@ -5209,6 +5209,336 @@ class AdvancedCardIllustrations {
                   blurRadius: 2,
                 ),
               ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  static Widget _buildRiceMillIllustration() {
+    // 떡상방앗간/정미소 - 전통적인 방앗간 시설
+    return Stack(
+      children: [
+        // 시골 농업 배경
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.lightBlue[100]!, Colors.brown[200]!, Colors.brown[400]!],
+            ),
+          ),
+        ),
+        // 메인 방앗간 건물
+        Center(
+          child: Stack(
+            children: [
+              // 건물 기초 (돌 기반)
+              Positioned(
+                bottom: 0,
+                left: 5,
+                right: 5,
+                child: Container(
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[400],
+                    border: Border.all(color: Colors.grey[600]!, width: 1),
+                  ),
+                ),
+              ),
+              // 메인 건물 구조
+              Container(
+                width: 45,
+                height: 35,
+                decoration: BoxDecoration(
+                  color: Colors.brown[300],
+                  borderRadius: BorderRadius.circular(4),
+                  border: Border.all(color: Colors.brown[600]!, width: 2),
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Colors.brown[200]!, Colors.brown[400]!, Colors.brown[600]!],
+                  ),
+                ),
+              ),
+              // 지붕 (기와 또는 초가)
+              Positioned(
+                top: -8,
+                left: -2,
+                right: -2,
+                child: Container(
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.red[700],
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(25),
+                      topRight: Radius.circular(25),
+                    ),
+                    border: Border.all(color: Colors.red[900]!, width: 2),
+                    gradient: LinearGradient(
+                      colors: [Colors.red[600]!, Colors.red[800]!],
+                    ),
+                  ),
+                ),
+              ),
+              // 물레방아 (큰 원형 바퀴)
+              Positioned(
+                left: -12,
+                top: 8,
+                child: Container(
+                  width: 20,
+                  height: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[700],
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.brown[900]!, width: 2),
+                  ),
+                ),
+              ),
+              // 물레방아 중심축
+              Positioned(
+                left: -7,
+                top: 13,
+                child: Container(
+                  width: 10,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.grey[800]!, width: 1),
+                  ),
+                ),
+              ),
+              // 물레방아 날개들 (8개 방향)
+              Positioned(
+                left: -10,
+                top: 16,
+                child: Container(
+                  width: 16,
+                  height: 3,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[600],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              Positioned(
+                left: -7,
+                top: 10,
+                child: Container(
+                  width: 3,
+                  height: 16,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[600],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              // 메인 문
+              Positioned(
+                bottom: 5,
+                left: 15,
+                right: 15,
+                child: Container(
+                  height: 18,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[800],
+                    borderRadius: BorderRadius.circular(3),
+                    border: Border.all(color: Colors.brown[900]!, width: 1),
+                  ),
+                ),
+              ),
+              // 문 손잡이
+              Positioned(
+                bottom: 12,
+                right: 18,
+                child: Container(
+                  width: 2,
+                  height: 2,
+                  decoration: BoxDecoration(
+                    color: Colors.yellow[600],
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+              // 창문들
+              Positioned(
+                top: 8,
+                left: 8,
+                child: Container(
+                  width: 8,
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: Colors.lightBlue[200],
+                    borderRadius: BorderRadius.circular(2),
+                    border: Border.all(color: Colors.brown[700]!, width: 1),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 8,
+                right: 8,
+                child: Container(
+                  width: 8,
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: Colors.lightBlue[200],
+                    borderRadius: BorderRadius.circular(2),
+                    border: Border.all(color: Colors.brown[700]!, width: 1),
+                  ),
+                ),
+              ),
+              // 연기 나오는 굴뚝
+              Positioned(
+                top: -15,
+                right: 8,
+                child: Container(
+                  width: 4,
+                  height: 12,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    borderRadius: BorderRadius.circular(2),
+                    border: Border.all(color: Colors.grey[800]!, width: 1),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 쌀/곡물 더미들 (주변)
+        Positioned(
+          bottom: 10,
+          left: 5,
+          child: Container(
+            width: 8,
+            height: 6,
+            decoration: BoxDecoration(
+              color: Colors.yellow[700],
+              borderRadius: BorderRadius.circular(4),
+              border: Border.all(color: Colors.yellow[900]!, width: 1),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 8,
+          right: 8,
+          child: Container(
+            width: 10,
+            height: 8,
+            decoration: BoxDecoration(
+              color: Colors.yellow[600],
+              borderRadius: BorderRadius.circular(5),
+              border: Border.all(color: Colors.yellow[800]!, width: 1),
+            ),
+          ),
+        ),
+        // 나무 통들 (곡물 저장용)
+        Positioned(
+          bottom: 12,
+          left: 55,
+          child: Container(
+            width: 6,
+            height: 10,
+            decoration: BoxDecoration(
+              color: Colors.brown[500],
+              borderRadius: BorderRadius.circular(3),
+              border: Border.all(color: Colors.brown[700]!, width: 1),
+            ),
+          ),
+        ),
+        // 연기 (굴뚝에서)
+        Positioned(
+          top: 2,
+          right: 8,
+          child: Container(
+            width: 6,
+            height: 8,
+            decoration: BoxDecoration(
+              color: Colors.grey[300]!.withOpacity(0.6),
+              borderRadius: BorderRadius.circular(4),
+            ),
+          ),
+        ),
+        Positioned(
+          top: -2,
+          right: 10,
+          child: Container(
+            width: 4,
+            height: 5,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.5),
+              borderRadius: BorderRadius.circular(3),
+            ),
+          ),
+        ),
+        // 물 효과 (물레방아용)
+        Positioned(
+          left: 2,
+          bottom: 20,
+          child: Container(
+            width: 8,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.blue[400]!.withOpacity(0.7),
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+        ),
+        // 곡물 입자들 (날리는 효과)
+        Positioned(
+          top: 15,
+          left: 12,
+          child: Container(
+            width: 2,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.yellow[600],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          top: 20,
+          right: 15,
+          child: Container(
+            width: 1,
+            height: 1,
+            decoration: BoxDecoration(
+              color: Colors.orange[400],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 25,
+          left: 25,
+          child: Container(
+            width: 1,
+            height: 1,
+            decoration: BoxDecoration(
+              color: Colors.yellow[500],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        // 작업 효과 표시
+        Positioned(
+          top: 8,
+          left: 2,
+          child: Container(
+            padding: EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              color: Colors.orange[600]!.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(2),
+            ),
+            child: Text(
+              "⚙",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 5,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
