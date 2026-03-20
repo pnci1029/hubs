@@ -104,7 +104,7 @@ class AdvancedCardIllustrations {
         return _buildSniperIllustration();
       case "터렛 조종사":
       case "터렛 오퍼레이터":
-        return _buildEmojiIllustration("🎯🔫");
+        return _buildTurretOperatorIllustration();
       case "장풍도사":
         return _buildKungFuMasterIllustration();
       case "못생퀸":
