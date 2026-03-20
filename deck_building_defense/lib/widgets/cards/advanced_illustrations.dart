@@ -111,7 +111,7 @@ class AdvancedCardIllustrations {
         return _buildUglyQueenIllustration();
       case "소난다 외양간":
       case "스낸다반":
-        return _buildEmojiIllustration("🍱⚔️");
+        return _buildLunchboxBarnIllustration();
       
       // 미구현 카드들
       case "쩝쩝박사":
