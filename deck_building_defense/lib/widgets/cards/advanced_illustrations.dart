@@ -108,7 +108,7 @@ class AdvancedCardIllustrations {
       case "장풍도사":
         return _buildKungFuMasterIllustration();
       case "못생퀸":
-        return _buildEmojiIllustration("👑💀");
+        return _buildUglyQueenIllustration();
       case "소난다 외양간":
       case "스낸다반":
         return _buildEmojiIllustration("🍱⚔️");
@@ -5882,6 +5882,367 @@ class AdvancedCardIllustrations {
                 fontSize: 5,
                 fontWeight: FontWeight.bold,
               ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  static Widget _buildUglyQueenIllustration() {
+    // 못생퀸 - 부정적인 능력을 가진 어두운 여왕
+    return Stack(
+      children: [
+        // 어두운 왕궁 배경
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.purple[900]!, Colors.grey[800]!, Colors.black],
+            ),
+          ),
+        ),
+        // 메인 퀸 캐릭터
+        Center(
+          child: Stack(
+            children: [
+              // 퀸의 몸체 (드레스)
+              Container(
+                width: 30,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Colors.purple[800],
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
+                    bottomLeft: Radius.circular(25),
+                    bottomRight: Radius.circular(25),
+                  ),
+                  border: Border.all(color: Colors.purple[900]!, width: 2),
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Colors.purple[600]!, Colors.purple[900]!],
+                  ),
+                ),
+              ),
+              // 퀸의 머리/얼굴
+              Positioned(
+                top: -12,
+                left: 8,
+                right: 8,
+                child: Container(
+                  width: 14,
+                  height: 18,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(9),
+                    border: Border.all(color: Colors.grey[600]!, width: 2),
+                    gradient: LinearGradient(
+                      colors: [Colors.grey[200]!, Colors.grey[400]!],
+                    ),
+                  ),
+                ),
+              ),
+              // 못생긴 표정 (찡그린 눈)
+              Positioned(
+                top: -8,
+                left: 11,
+                child: Container(
+                  width: 3,
+                  height: 2,
+                  decoration: BoxDecoration(
+                    color: Colors.red[800],
+                    borderRadius: BorderRadius.circular(1),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: -8,
+                right: 11,
+                child: Container(
+                  width: 3,
+                  height: 2,
+                  decoration: BoxDecoration(
+                    color: Colors.red[800],
+                    borderRadius: BorderRadius.circular(1),
+                  ),
+                ),
+              ),
+              // 못생긴 입 (찡그림)
+              Positioned(
+                top: -2,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 6,
+                    height: 2,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(3),
+                    ),
+                  ),
+                ),
+              ),
+              // 사악한 크라운
+              Positioned(
+                top: -22,
+                left: 6,
+                right: 6,
+                child: Container(
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[700],
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      topRight: Radius.circular(8),
+                    ),
+                    border: Border.all(color: Colors.grey[900]!, width: 2),
+                  ),
+                ),
+              ),
+              // 크라운의 가시/뾰족한 부분들
+              Positioned(
+                top: -25,
+                left: 8,
+                child: Container(
+                  width: 3,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: -27,
+                left: 12,
+                right: 12,
+                child: Container(
+                  width: 4,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: -25,
+                right: 8,
+                child: Container(
+                  width: 3,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              // 가짜 보석 (크라운에)
+              Positioned(
+                top: -18,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 4,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: Colors.red[900],
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.black, width: 1),
+                    ),
+                  ),
+                ),
+              ),
+              // 팔들 (사악한 자세)
+              Positioned(
+                top: 8,
+                left: -8,
+                child: Container(
+                  width: 12,
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(3),
+                    border: Border.all(color: Colors.grey[500]!, width: 1),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 8,
+                right: -8,
+                child: Container(
+                  width: 12,
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(3),
+                    border: Border.all(color: Colors.grey[500]!, width: 1),
+                  ),
+                ),
+              ),
+              // 드레스 장식 (어둠의 문양)
+              Positioned(
+                top: 15,
+                left: 8,
+                right: 8,
+                child: Container(
+                  height: 3,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 22,
+                left: 6,
+                right: 6,
+                child: Container(
+                  height: 2,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[900],
+                    borderRadius: BorderRadius.circular(1),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 어둠의 아우라 효과들
+        Positioned(
+          top: 8,
+          left: 5,
+          child: Container(
+            width: 6,
+            height: 6,
+            decoration: BoxDecoration(
+              color: Colors.purple[400]!.withOpacity(0.7),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.purple.withOpacity(0.5),
+                  blurRadius: 4,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          top: 15,
+          right: 8,
+          child: Container(
+            width: 4,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.grey[600]!.withOpacity(0.8),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.4),
+                  blurRadius: 3,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 12,
+          left: 12,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.8),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 18,
+          right: 15,
+          child: Container(
+            width: 5,
+            height: 5,
+            decoration: BoxDecoration(
+              color: Colors.purple[700]!.withOpacity(0.6),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.purple.withOpacity(0.3),
+                  blurRadius: 3,
+                ),
+              ],
+            ),
+          ),
+        ),
+        // 부정적 효과 표시들
+        Positioned(
+          top: 5,
+          left: 2,
+          child: Container(
+            padding: EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              color: Colors.red[800]!.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(2),
+            ),
+            child: Text(
+              "☠",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 6,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 5,
+          right: 2,
+          child: Container(
+            padding: EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              color: Colors.purple[800]!.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(2),
+            ),
+            child: Text(
+              "✖",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 5,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        // 왕궁 배경 요소들 (어둠의 기둥)
+        Positioned(
+          left: 2,
+          top: 10,
+          bottom: 10,
+          child: Container(
+            width: 4,
+            decoration: BoxDecoration(
+              color: Colors.grey[800],
+              borderRadius: BorderRadius.circular(2),
+              border: Border.all(color: Colors.grey[900]!, width: 1),
+            ),
+          ),
+        ),
+        Positioned(
+          right: 2,
+          top: 10,
+          bottom: 10,
+          child: Container(
+            width: 4,
+            decoration: BoxDecoration(
+              color: Colors.grey[800],
+              borderRadius: BorderRadius.circular(2),
+              border: Border.all(color: Colors.grey[900]!, width: 1),
             ),
           ),
         ),
