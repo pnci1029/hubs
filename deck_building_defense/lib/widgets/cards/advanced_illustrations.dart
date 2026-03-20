@@ -6249,4 +6249,372 @@ class AdvancedCardIllustrations {
       ],
     );
   }
+
+  static Widget _buildLunchboxBarnIllustration() {
+    // 소난다 외양간/스낸다반 - 도시락을 만드는 전투적인 시설
+    return Stack(
+      children: [
+        // 주방/식당 배경 (따뜻한 분위기)
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.orange[100]!, Colors.brown[200]!, Colors.brown[400]!],
+            ),
+          ),
+        ),
+        // 메인 건물 (외양간 형태)
+        Center(
+          child: Stack(
+            children: [
+              // 기본 외양간 구조
+              Container(
+                width: 45,
+                height: 35,
+                decoration: BoxDecoration(
+                  color: Colors.brown[400],
+                  borderRadius: BorderRadius.circular(6),
+                  border: Border.all(color: Colors.brown[700]!, width: 2),
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Colors.brown[300]!, Colors.brown[600]!],
+                  ),
+                ),
+              ),
+              // 지붕 (헛간 스타일)
+              Positioned(
+                top: -10,
+                left: -3,
+                right: -3,
+                child: Container(
+                  height: 18,
+                  decoration: BoxDecoration(
+                    color: Colors.red[600],
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(25),
+                      topRight: Radius.circular(25),
+                    ),
+                    border: Border.all(color: Colors.red[800]!, width: 2),
+                    gradient: LinearGradient(
+                      colors: [Colors.red[500]!, Colors.red[700]!],
+                    ),
+                  ),
+                ),
+              ),
+              // 큰 출입문 (헛간 문)
+              Positioned(
+                bottom: 3,
+                left: 12,
+                right: 12,
+                child: Container(
+                  height: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[800],
+                    borderRadius: BorderRadius.circular(4),
+                    border: Border.all(color: Colors.brown[900]!, width: 2),
+                  ),
+                ),
+              ),
+              // 문 손잡이
+              Positioned(
+                bottom: 12,
+                right: 15,
+                child: Container(
+                  width: 2,
+                  height: 2,
+                  decoration: BoxDecoration(
+                    color: Colors.yellow[600],
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+              // 창문 (주방 창문)
+              Positioned(
+                top: 8,
+                left: 6,
+                child: Container(
+                  width: 8,
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: Colors.yellow[200],
+                    borderRadius: BorderRadius.circular(2),
+                    border: Border.all(color: Colors.brown[700]!, width: 1),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 8,
+                right: 6,
+                child: Container(
+                  width: 8,
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: Colors.yellow[200],
+                    borderRadius: BorderRadius.circular(2),
+                    border: Border.all(color: Colors.brown[700]!, width: 1),
+                  ),
+                ),
+              ),
+              // 굴뚝 (요리용)
+              Positioned(
+                top: -18,
+                right: 8,
+                child: Container(
+                  width: 5,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    borderRadius: BorderRadius.circular(3),
+                    border: Border.all(color: Colors.grey[800]!, width: 1),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 도시락들 (외부에 진열)
+        Positioned(
+          bottom: 8,
+          left: 8,
+          child: Container(
+            width: 8,
+            height: 6,
+            decoration: BoxDecoration(
+              color: Colors.red[400],
+              borderRadius: BorderRadius.circular(3),
+              border: Border.all(color: Colors.red[600]!, width: 1),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.red.withOpacity(0.3),
+                  blurRadius: 2,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 10,
+          right: 6,
+          child: Container(
+            width: 9,
+            height: 7,
+            decoration: BoxDecoration(
+              color: Colors.blue[400],
+              borderRadius: BorderRadius.circular(4),
+              border: Border.all(color: Colors.blue[600]!, width: 1),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.blue.withOpacity(0.3),
+                  blurRadius: 2,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 6,
+          left: 20,
+          child: Container(
+            width: 7,
+            height: 5,
+            decoration: BoxDecoration(
+              color: Colors.green[400],
+              borderRadius: BorderRadius.circular(3),
+              border: Border.all(color: Colors.green[600]!, width: 1),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.green.withOpacity(0.3),
+                  blurRadius: 2,
+                ),
+              ],
+            ),
+          ),
+        ),
+        // 연기 (요리 중)
+        Positioned(
+          top: 2,
+          right: 8,
+          child: Container(
+            width: 8,
+            height: 12,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.7),
+              borderRadius: BorderRadius.circular(6),
+            ),
+          ),
+        ),
+        Positioned(
+          top: -3,
+          right: 10,
+          child: Container(
+            width: 4,
+            height: 6,
+            decoration: BoxDecoration(
+              color: Colors.grey[300]!.withOpacity(0.6),
+              borderRadius: BorderRadius.circular(3),
+            ),
+          ),
+        ),
+        // 무기들 (전투적 요소)
+        Positioned(
+          left: 2,
+          top: 15,
+          child: Container(
+            width: 3,
+            height: 20,
+            decoration: BoxDecoration(
+              color: Colors.brown[600],
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+        ),
+        // 창끝 (뾰족한)
+        Positioned(
+          left: 0,
+          top: 12,
+          child: Container(
+            width: 7,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.grey[400],
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+        ),
+        // 오른쪽 칼
+        Positioned(
+          right: 2,
+          top: 18,
+          child: Container(
+            width: 2,
+            height: 15,
+            decoration: BoxDecoration(
+              color: Colors.grey[500],
+              borderRadius: BorderRadius.circular(1),
+            ),
+          ),
+        ),
+        // 칼자루
+        Positioned(
+          right: 1,
+          bottom: 12,
+          child: Container(
+            width: 4,
+            height: 6,
+            decoration: BoxDecoration(
+              color: Colors.brown[700],
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+        ),
+        // 음식 재료들 (주변에)
+        Positioned(
+          top: 10,
+          left: 2,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.orange[400],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          top: 18,
+          right: 8,
+          child: Container(
+            width: 2,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.green[500],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 20,
+          left: 12,
+          child: Container(
+            width: 2,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.red[400],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        // 전투 요리 표시
+        Positioned(
+          top: 5,
+          left: 2,
+          child: Container(
+            padding: EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              color: Colors.orange[600]!.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(2),
+            ),
+            child: Text(
+              "🍳",
+              style: TextStyle(
+                fontSize: 6,
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 5,
+          right: 2,
+          child: Container(
+            padding: EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              color: Colors.red[600]!.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(2),
+            ),
+            child: Text(
+              "⚔",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 5,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        // 맛있는 냄새 효과 (파티클)
+        Positioned(
+          top: 12,
+          left: 35,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.yellow[300]!.withOpacity(0.8),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.orange.withOpacity(0.4),
+                  blurRadius: 3,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          top: 20,
+          left: 40,
+          child: Container(
+            width: 2,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.orange[400]!.withOpacity(0.7),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 }
