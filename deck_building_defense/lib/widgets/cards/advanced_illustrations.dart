@@ -106,7 +106,7 @@ class AdvancedCardIllustrations {
       case "터렛 오퍼레이터":
         return _buildEmojiIllustration("🎯🔫");
       case "장풍도사":
-        return _buildEmojiIllustration("👊💥");
+        return _buildKungFuMasterIllustration();
       case "못생퀸":
         return _buildEmojiIllustration("👑💀");
       case "소난다 외양간":
@@ -5534,6 +5534,349 @@ class AdvancedCardIllustrations {
             ),
             child: Text(
               "⚙",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 5,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  static Widget _buildKungFuMasterIllustration() {
+    // 장풍도사 - 무술 수행자가 에너지 장풍을 날리는 모습
+    return Stack(
+      children: [
+        // 무술 도장 배경 (동양적 분위기)
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.orange[200]!, Colors.red[300]!, Colors.purple[600]!],
+            ),
+          ),
+        ),
+        // 메인 캐릭터 (장풍도사)
+        Center(
+          child: Stack(
+            children: [
+              // 도사의 몸체
+              Container(
+                width: 20,
+                height: 35,
+                decoration: BoxDecoration(
+                  color: Colors.orange[600],
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.orange[800]!, width: 2),
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Colors.orange[400]!, Colors.orange[700]!],
+                  ),
+                ),
+              ),
+              // 도사의 머리
+              Positioned(
+                top: -8,
+                left: 5,
+                right: 5,
+                child: Container(
+                  width: 10,
+                  height: 12,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[300],
+                    borderRadius: BorderRadius.circular(6),
+                    border: Border.all(color: Colors.brown[600]!, width: 1),
+                  ),
+                ),
+              ),
+              // 도사의 상투/머리띠
+              Positioned(
+                top: -10,
+                left: 7,
+                right: 7,
+                child: Container(
+                  width: 6,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ),
+              // 장풍을 쏘는 팔 (오른팔)
+              Positioned(
+                top: 5,
+                right: -8,
+                child: Container(
+                  width: 15,
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[300],
+                    borderRadius: BorderRadius.circular(3),
+                    border: Border.all(color: Colors.brown[500]!, width: 1),
+                  ),
+                ),
+              ),
+              // 장풍을 쏘는 주먹
+              Positioned(
+                top: 3,
+                right: -12,
+                child: Container(
+                  width: 8,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[400],
+                    borderRadius: BorderRadius.circular(4),
+                    border: Border.all(color: Colors.brown[600]!, width: 1),
+                  ),
+                ),
+              ),
+              // 왼팔 (방어/균형 자세)
+              Positioned(
+                top: 8,
+                left: -6,
+                child: Container(
+                  width: 12,
+                  height: 5,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[300],
+                    borderRadius: BorderRadius.circular(3),
+                    border: Border.all(color: Colors.brown[500]!, width: 1),
+                  ),
+                ),
+              ),
+              // 다리 (무술 자세)
+              Positioned(
+                bottom: -5,
+                left: 2,
+                child: Container(
+                  width: 6,
+                  height: 12,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[400],
+                    borderRadius: BorderRadius.circular(3),
+                    border: Border.all(color: Colors.brown[600]!, width: 1),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: -3,
+                right: 4,
+                child: Container(
+                  width: 6,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[400],
+                    borderRadius: BorderRadius.circular(3),
+                    border: Border.all(color: Colors.brown[600]!, width: 1),
+                  ),
+                ),
+              ),
+              // 도복 허리띠
+              Positioned(
+                top: 15,
+                left: 2,
+                right: 2,
+                child: Container(
+                  height: 3,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(1),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 장풍 에너지 (오른쪽으로 발사)
+        Positioned(
+          top: 20,
+          right: 5,
+          child: Container(
+            width: 25,
+            height: 15,
+            decoration: BoxDecoration(
+              gradient: RadialGradient(
+                center: Alignment.centerLeft,
+                radius: 1.2,
+                colors: [
+                  Colors.yellow[300]!.withOpacity(0.9),
+                  Colors.orange[400]!.withOpacity(0.7),
+                  Colors.red[500]!.withOpacity(0.5),
+                  Colors.transparent,
+                ],
+              ),
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ),
+        // 장풍 에너지 핵심 (밝은 중심)
+        Positioned(
+          top: 23,
+          right: 15,
+          child: Container(
+            width: 8,
+            height: 8,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.9),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.yellow.withOpacity(0.8),
+                  blurRadius: 6,
+                  spreadRadius: 2,
+                ),
+              ],
+            ),
+          ),
+        ),
+        // 장풍 파동 효과들
+        Positioned(
+          top: 18,
+          right: 8,
+          child: Container(
+            width: 4,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.yellow[400]!.withOpacity(0.8),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.orange.withOpacity(0.6),
+                  blurRadius: 3,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          top: 28,
+          right: 12,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.orange[400]!.withOpacity(0.7),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.red.withOpacity(0.5),
+                  blurRadius: 2,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          top: 25,
+          right: 6,
+          child: Container(
+            width: 2,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.red[400]!.withOpacity(0.6),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        // 기 에너지 (도사 주변)
+        Positioned(
+          top: 12,
+          left: 8,
+          child: Container(
+            width: 6,
+            height: 6,
+            decoration: BoxDecoration(
+              color: Colors.cyan[300]!.withOpacity(0.6),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.blue.withOpacity(0.4),
+                  blurRadius: 4,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 15,
+          left: 15,
+          child: Container(
+            width: 4,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.purple[300]!.withOpacity(0.5),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.purple.withOpacity(0.3),
+                  blurRadius: 3,
+                ),
+              ],
+            ),
+          ),
+        ),
+        // 발차기 자세 효과선들
+        Positioned(
+          bottom: 8,
+          right: 20,
+          child: Container(
+            width: 8,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.7),
+              borderRadius: BorderRadius.circular(1),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 12,
+          right: 18,
+          child: Container(
+            width: 6,
+            height: 1,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.5),
+              borderRadius: BorderRadius.circular(1),
+            ),
+          ),
+        ),
+        // 무술 기호/문양 (배경에)
+        Positioned(
+          top: 5,
+          left: 2,
+          child: Container(
+            padding: EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              color: Colors.red[600]!.withOpacity(0.7),
+              borderRadius: BorderRadius.circular(2),
+            ),
+            child: Text(
+              "武",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 6,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 5,
+          right: 2,
+          child: Container(
+            padding: EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              color: Colors.orange[600]!.withOpacity(0.7),
+              borderRadius: BorderRadius.circular(2),
+            ),
+            child: Text(
+              "氣",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 5,
