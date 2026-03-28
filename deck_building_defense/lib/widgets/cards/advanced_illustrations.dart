@@ -95,7 +95,7 @@ class AdvancedCardIllustrations {
       case "클로렐라 풀":
         return _buildChlorellaPoolIllustration();
       case "드론 자판기":
-        return _buildComplexIllustration();
+        return _buildDroneVendingMachineIllustration();
       case "떡상방앗간":
       case "정미소":
         return _buildRiceMillIllustration();
@@ -7308,6 +7308,403 @@ class AdvancedCardIllustrations {
             decoration: BoxDecoration(
               color: Colors.yellow[300]!.withOpacity(0.8),
               borderRadius: BorderRadius.circular(1),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  static Widget _buildDroneVendingMachineIllustration() {
+    // 드론 자판기 - 미래형 드론을 판매하는 자동판매기
+    return Stack(
+      children: [
+        // 사이버펑크/미래 도시 배경
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.cyan[200]!, Colors.blue[600]!, Colors.purple[800]!],
+            ),
+          ),
+        ),
+        // 메인 자판기
+        Center(
+          child: Stack(
+            children: [
+              // 자판기 본체
+              Container(
+                width: 35,
+                height: 45,
+                decoration: BoxDecoration(
+                  color: Colors.grey[300],
+                  borderRadius: BorderRadius.circular(6),
+                  border: Border.all(color: Colors.grey[600]!, width: 3),
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Colors.grey[200]!, Colors.grey[500]!],
+                  ),
+                ),
+              ),
+              // 디스플레이 창 (상품 진열)
+              Positioned(
+                top: 5,
+                left: 4,
+                right: 4,
+                child: Container(
+                  height: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(4),
+                    border: Border.all(color: Colors.grey[700]!, width: 2),
+                  ),
+                ),
+              ),
+              // 디스플레이 내부 (네온 효과)
+              Positioned(
+                top: 7,
+                left: 6,
+                right: 6,
+                child: Container(
+                  height: 16,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.cyan[400]!.withOpacity(0.8), Colors.blue[600]!.withOpacity(0.6)],
+                    ),
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ),
+              // 드론들 (진열된 상품들)
+              Positioned(
+                top: 8,
+                left: 8,
+                child: Container(
+                  width: 6,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.red[400],
+                    borderRadius: BorderRadius.circular(2),
+                    border: Border.all(color: Colors.red[600]!, width: 1),
+                  ),
+                ),
+              ),
+              // 드론 프로펠러
+              Positioned(
+                top: 6,
+                left: 10,
+                child: Container(
+                  width: 2,
+                  height: 2,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+              // 두 번째 드론
+              Positioned(
+                top: 8,
+                right: 8,
+                child: Container(
+                  width: 5,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.blue[400],
+                    borderRadius: BorderRadius.circular(2),
+                    border: Border.all(color: Colors.blue[600]!, width: 1),
+                  ),
+                ),
+              ),
+              // 두 번째 드론 프로펠러
+              Positioned(
+                top: 6,
+                right: 9,
+                child: Container(
+                  width: 2,
+                  height: 2,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+              // 세 번째 드론 (하단)
+              Positioned(
+                top: 15,
+                left: 12,
+                child: Container(
+                  width: 6,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.green[400],
+                    borderRadius: BorderRadius.circular(2),
+                    border: Border.all(color: Colors.green[600]!, width: 1),
+                  ),
+                ),
+              ),
+              // 세 번째 드론 프로펠러
+              Positioned(
+                top: 13,
+                left: 14,
+                child: Container(
+                  width: 2,
+                  height: 2,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600],
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+              // 조작 패널
+              Positioned(
+                top: 28,
+                left: 6,
+                right: 6,
+                child: Container(
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[700],
+                    borderRadius: BorderRadius.circular(2),
+                    border: Border.all(color: Colors.grey[900]!, width: 1),
+                  ),
+                ),
+              ),
+              // 버튼들 (조작 패널)
+              Positioned(
+                top: 29,
+                left: 8,
+                child: Container(
+                  width: 4,
+                  height: 3,
+                  decoration: BoxDecoration(
+                    color: Colors.red[500],
+                    borderRadius: BorderRadius.circular(1),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 29,
+                left: 14,
+                child: Container(
+                  width: 4,
+                  height: 3,
+                  decoration: BoxDecoration(
+                    color: Colors.green[500],
+                    borderRadius: BorderRadius.circular(1),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 29,
+                right: 8,
+                child: Container(
+                  width: 4,
+                  height: 3,
+                  decoration: BoxDecoration(
+                    color: Colors.blue[500],
+                    borderRadius: BorderRadius.circular(1),
+                  ),
+                ),
+              ),
+              // 동전 투입구
+              Positioned(
+                top: 33,
+                right: 8,
+                child: Container(
+                  width: 6,
+                  height: 2,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(1),
+                    border: Border.all(color: Colors.grey[600]!, width: 1),
+                  ),
+                ),
+              ),
+              // 상품 배출구
+              Positioned(
+                bottom: 3,
+                left: 8,
+                right: 8,
+                child: Container(
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(3),
+                    border: Border.all(color: Colors.grey[700]!, width: 2),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 날아다니는 드론들 (배경에)
+        Positioned(
+          top: 8,
+          left: 8,
+          child: Container(
+            width: 8,
+            height: 5,
+            decoration: BoxDecoration(
+              color: Colors.yellow[400],
+              borderRadius: BorderRadius.circular(3),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.yellow.withOpacity(0.4),
+                  blurRadius: 3,
+                ),
+              ],
+            ),
+          ),
+        ),
+        // 드론 프로펠러 (회전 효과)
+        Positioned(
+          top: 6,
+          left: 10,
+          child: Container(
+            width: 4,
+            height: 1,
+            decoration: BoxDecoration(
+              color: Colors.grey[500]!.withOpacity(0.7),
+              borderRadius: BorderRadius.circular(1),
+            ),
+          ),
+        ),
+        Positioned(
+          top: 8,
+          left: 10,
+          child: Container(
+            width: 1,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.grey[500]!.withOpacity(0.7),
+              borderRadius: BorderRadius.circular(1),
+            ),
+          ),
+        ),
+        // 두 번째 날아다니는 드론
+        Positioned(
+          bottom: 15,
+          right: 5,
+          child: Container(
+            width: 6,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.purple[400],
+              borderRadius: BorderRadius.circular(2),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.purple.withOpacity(0.3),
+                  blurRadius: 2,
+                ),
+              ],
+            ),
+          ),
+        ),
+        // LED 조명 효과들
+        Positioned(
+          top: 5,
+          left: 2,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.cyan[400]!.withOpacity(0.8),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.cyan.withOpacity(0.6),
+                  blurRadius: 4,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          top: 12,
+          right: 2,
+          child: Container(
+            width: 2,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.blue[400]!.withOpacity(0.7),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.blue.withOpacity(0.4),
+                  blurRadius: 3,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 8,
+          left: 3,
+          child: Container(
+            width: 2,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.green[400]!.withOpacity(0.6),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        // 미래형 마킹들
+        Positioned(
+          top: 5,
+          left: 2,
+          child: Container(
+            padding: EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              color: Colors.cyan[600]!.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(2),
+            ),
+            child: Text(
+              "🚁",
+              style: TextStyle(
+                fontSize: 6,
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 5,
+          right: 2,
+          child: Container(
+            padding: EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              color: Colors.purple[600]!.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(2),
+            ),
+            child: Text(
+              "⚡",
+              style: TextStyle(
+                color: Colors.yellow,
+                fontSize: 5,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        // 홀로그램 효과 (자판기 위)
+        Positioned(
+          top: -2,
+          left: 8,
+          right: 8,
+          child: Container(
+            height: 4,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.cyan[300]!.withOpacity(0.6),
+                  Colors.transparent,
+                  Colors.blue[400]!.withOpacity(0.5),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(2),
             ),
           ),
         ),
