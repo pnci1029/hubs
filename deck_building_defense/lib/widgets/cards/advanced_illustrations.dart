@@ -6617,4 +6617,368 @@ class AdvancedCardIllustrations {
       ],
     );
   }
+
+  static Widget _buildTurretOperatorIllustration() {
+    // 터렛 조종사/터렛 오퍼레이터 - 터렛을 조종하는 전문가
+    return Stack(
+      children: [
+        // 군사 기지 배경
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.grey[300]!, Colors.green[700]!, Colors.grey[800]!],
+            ),
+          ),
+        ),
+        // 메인 터렛 시설
+        Center(
+          child: Stack(
+            children: [
+              // 터렛 베이스 (원형 플랫폼)
+              Container(
+                width: 35,
+                height: 35,
+                decoration: BoxDecoration(
+                  color: Colors.grey[600],
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.grey[800]!, width: 3),
+                  gradient: RadialGradient(
+                    center: Alignment.center,
+                    radius: 0.8,
+                    colors: [Colors.grey[400]!, Colors.grey[700]!],
+                  ),
+                ),
+              ),
+              // 터렛 메인 포신 (긴 대포)
+              Positioned(
+                top: 15,
+                right: -15,
+                child: Container(
+                  width: 25,
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[700],
+                    borderRadius: BorderRadius.circular(3),
+                    border: Border.all(color: Colors.grey[900]!, width: 1),
+                    gradient: LinearGradient(
+                      colors: [Colors.grey[600]!, Colors.grey[800]!],
+                    ),
+                  ),
+                ),
+              ),
+              // 포구 (총구)
+              Positioned(
+                top: 16,
+                right: -17,
+                child: Container(
+                  width: 4,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.grey[700]!, width: 1),
+                  ),
+                ),
+              ),
+              // 터렛 타워 (중앙 조종실)
+              Positioned(
+                top: 8,
+                left: 12,
+                right: 12,
+                child: Container(
+                  width: 11,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[500],
+                    borderRadius: BorderRadius.circular(6),
+                    border: Border.all(color: Colors.grey[700]!, width: 2),
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Colors.grey[400]!, Colors.grey[600]!],
+                    ),
+                  ),
+                ),
+              ),
+              // 조종사 (작은 인물)
+              Positioned(
+                top: 6,
+                left: 14,
+                right: 14,
+                child: Container(
+                  width: 7,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[300],
+                    borderRadius: BorderRadius.circular(4),
+                    border: Border.all(color: Colors.brown[600]!, width: 1),
+                  ),
+                ),
+              ),
+              // 조종사 헬멧
+              Positioned(
+                top: 4,
+                left: 15,
+                right: 15,
+                child: Container(
+                  width: 5,
+                  height: 5,
+                  decoration: BoxDecoration(
+                    color: Colors.green[600],
+                    borderRadius: BorderRadius.circular(3),
+                    border: Border.all(color: Colors.green[800]!, width: 1),
+                  ),
+                ),
+              ),
+              // 조준 시스템 (터렛 위)
+              Positioned(
+                top: 2,
+                left: 16,
+                right: 16,
+                child: Container(
+                  width: 3,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.red[600],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              // 레이더/센서
+              Positioned(
+                top: -2,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 6,
+                    height: 6,
+                    decoration: BoxDecoration(
+                      color: Colors.green[400],
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.green[600]!, width: 1),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.green.withOpacity(0.5),
+                          blurRadius: 4,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              // 터렛 지지대들
+              Positioned(
+                bottom: -3,
+                left: 8,
+                child: Container(
+                  width: 4,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[700],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: -3,
+                right: 8,
+                child: Container(
+                  width: 4,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[700],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: -2,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 3,
+                    height: 6,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[700],
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 조준선/타겟 표시 (발사 방향)
+        Positioned(
+          top: 12,
+          right: 5,
+          child: Container(
+            width: 8,
+            height: 8,
+            decoration: BoxDecoration(
+              color: Colors.red[400]!.withOpacity(0.7),
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.red[600]!, width: 2),
+            ),
+          ),
+        ),
+        Positioned(
+          top: 20,
+          right: 8,
+          child: Container(
+            width: 4,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.red[600]!.withOpacity(0.8),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        // 발사 효과 (머즐 플래시)
+        Positioned(
+          top: 16,
+          right: -8,
+          child: Container(
+            width: 6,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.orange[400]!.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(2),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.yellow.withOpacity(0.6),
+                  blurRadius: 3,
+                ),
+              ],
+            ),
+          ),
+        ),
+        // 포탄/발사체들 (날아가는)
+        Positioned(
+          top: 8,
+          right: 2,
+          child: Container(
+            width: 2,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.yellow[600],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          top: 25,
+          right: 4,
+          child: Container(
+            width: 1,
+            height: 1,
+            decoration: BoxDecoration(
+              color: Colors.orange[500],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        // 기지 주변 시설들
+        Positioned(
+          left: 2,
+          bottom: 8,
+          child: Container(
+            width: 8,
+            height: 12,
+            decoration: BoxDecoration(
+              color: Colors.brown[600],
+              borderRadius: BorderRadius.circular(3),
+              border: Border.all(color: Colors.brown[800]!, width: 1),
+            ),
+          ),
+        ),
+        // 탄약 상자
+        Positioned(
+          right: 2,
+          bottom: 6,
+          child: Container(
+            width: 6,
+            height: 8,
+            decoration: BoxDecoration(
+              color: Colors.green[700],
+              borderRadius: BorderRadius.circular(2),
+              border: Border.all(color: Colors.green[900]!, width: 1),
+            ),
+          ),
+        ),
+        // 군사 마킹들
+        Positioned(
+          top: 5,
+          left: 2,
+          child: Container(
+            padding: EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              color: Colors.red[700]!.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(2),
+            ),
+            child: Text(
+              "🎯",
+              style: TextStyle(
+                fontSize: 6,
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 5,
+          right: 2,
+          child: Container(
+            padding: EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              color: Colors.grey[700]!.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(2),
+            ),
+            child: Text(
+              "⚡",
+              style: TextStyle(
+                color: Colors.yellow,
+                fontSize: 5,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        // 레이더 스캔 효과
+        Positioned(
+          top: 10,
+          left: 8,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.green[300]!.withOpacity(0.7),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.green.withOpacity(0.4),
+                  blurRadius: 3,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 15,
+          left: 20,
+          child: Container(
+            width: 2,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.cyan[400]!.withOpacity(0.6),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 }
