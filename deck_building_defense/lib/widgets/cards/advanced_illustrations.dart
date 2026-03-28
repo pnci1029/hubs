@@ -81,7 +81,7 @@ class AdvancedCardIllustrations {
         return _buildSupplyDepotIllustration();
       case "풍선":
       case "벌룬":
-        return _buildEmojiIllustration("🎈💥");
+        return _buildBalloonIllustration();
       case "공업 단지":
       case "산업 단지":
         return _buildIndustrialComplexIllustration();
@@ -6975,6 +6975,339 @@ class AdvancedCardIllustrations {
             decoration: BoxDecoration(
               color: Colors.cyan[400]!.withOpacity(0.6),
               shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  static Widget _buildBalloonIllustration() {
+    // 풍선/벌룬 - 폭발하는 전투용 풍선
+    return Stack(
+      children: [
+        // 하늘 배경
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.lightBlue[200]!, Colors.blue[300]!, Colors.blue[600]!],
+            ),
+          ),
+        ),
+        // 메인 풍선
+        Center(
+          child: Stack(
+            children: [
+              // 풍선 몸체
+              Container(
+                width: 25,
+                height: 35,
+                decoration: BoxDecoration(
+                  color: Colors.red[400],
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25),
+                    topRight: Radius.circular(25),
+                    bottomLeft: Radius.circular(15),
+                    bottomRight: Radius.circular(15),
+                  ),
+                  border: Border.all(color: Colors.red[700]!, width: 2),
+                  gradient: RadialGradient(
+                    center: Alignment.topCenter,
+                    radius: 1.2,
+                    colors: [Colors.pink[300]!, Colors.red[500]!, Colors.red[700]!],
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.red.withOpacity(0.4),
+                      spreadRadius: 2,
+                      blurRadius: 6,
+                    ),
+                  ],
+                ),
+              ),
+              // 풍선 하이라이트 (반사광)
+              Positioned(
+                top: 5,
+                left: 5,
+                child: Container(
+                  width: 8,
+                  height: 12,
+                  decoration: BoxDecoration(
+                    gradient: RadialGradient(
+                      colors: [
+                        Colors.white.withOpacity(0.8),
+                        Colors.white.withOpacity(0.3),
+                        Colors.transparent,
+                      ],
+                    ),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),
+              // 풍선 끈/줄
+              Positioned(
+                bottom: -8,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 2,
+                    height: 15,
+                    decoration: BoxDecoration(
+                      color: Colors.brown[600],
+                      borderRadius: BorderRadius.circular(1),
+                    ),
+                  ),
+                ),
+              ),
+              // 폭발 장치 (풍선 하단)
+              Positioned(
+                bottom: 2,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 8,
+                    height: 6,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[700],
+                      borderRadius: BorderRadius.circular(3),
+                      border: Border.all(color: Colors.grey[900]!, width: 1),
+                    ),
+                  ),
+                ),
+              ),
+              // 폭발 장치 버튼/스위치
+              Positioned(
+                bottom: 3,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 3,
+                    height: 3,
+                    decoration: BoxDecoration(
+                      color: Colors.red[600],
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.red.withOpacity(0.6),
+                          blurRadius: 2,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // 폭발 효과들
+        Positioned(
+          top: 8,
+          left: 8,
+          child: Container(
+            width: 8,
+            height: 8,
+            decoration: BoxDecoration(
+              color: Colors.orange[400]!.withOpacity(0.8),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.yellow.withOpacity(0.6),
+                  blurRadius: 6,
+                  spreadRadius: 2,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          top: 12,
+          right: 10,
+          child: Container(
+            width: 6,
+            height: 6,
+            decoration: BoxDecoration(
+              color: Colors.yellow[500]!.withOpacity(0.9),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.orange.withOpacity(0.5),
+                  blurRadius: 4,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 18,
+          left: 12,
+          child: Container(
+            width: 5,
+            height: 5,
+            decoration: BoxDecoration(
+              color: Colors.red[300]!.withOpacity(0.7),
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.red.withOpacity(0.4),
+                  blurRadius: 3,
+                ),
+              ],
+            ),
+          ),
+        ),
+        // 폭발 파편들 (작은 조각들)
+        Positioned(
+          top: 15,
+          left: 5,
+          child: Container(
+            width: 2,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.yellow[600],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          top: 20,
+          right: 8,
+          child: Container(
+            width: 3,
+            height: 3,
+            decoration: BoxDecoration(
+              color: Colors.orange[500],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 25,
+          right: 15,
+          child: Container(
+            width: 2,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.red[400],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 22,
+          left: 8,
+          child: Container(
+            width: 1,
+            height: 1,
+            decoration: BoxDecoration(
+              color: Colors.orange[600],
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        // 구름들 (배경)
+        Positioned(
+          top: 5,
+          right: 2,
+          child: Container(
+            width: 12,
+            height: 6,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 5,
+          left: 2,
+          child: Container(
+            width: 10,
+            height: 5,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.6),
+              borderRadius: BorderRadius.circular(6),
+            ),
+          ),
+        ),
+        // 풍선 바구니 (하단에)
+        Positioned(
+          bottom: 3,
+          left: 0,
+          right: 0,
+          child: Center(
+            child: Container(
+              width: 6,
+              height: 4,
+              decoration: BoxDecoration(
+                color: Colors.brown[500],
+                borderRadius: BorderRadius.circular(2),
+                border: Border.all(color: Colors.brown[700]!, width: 1),
+              ),
+            ),
+          ),
+        ),
+        // 폭발 표시
+        Positioned(
+          top: 5,
+          left: 2,
+          child: Container(
+            padding: EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              color: Colors.red[600]!.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(2),
+            ),
+            child: Text(
+              "💥",
+              style: TextStyle(
+                fontSize: 6,
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 5,
+          right: 2,
+          child: Container(
+            padding: EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              color: Colors.orange[600]!.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(2),
+            ),
+            child: Text(
+              "🎈",
+              style: TextStyle(
+                fontSize: 5,
+              ),
+            ),
+          ),
+        ),
+        // 추가 폭발 스파크 효과
+        Positioned(
+          top: 18,
+          left: 15,
+          child: Container(
+            width: 4,
+            height: 2,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.9),
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 20,
+          right: 12,
+          child: Container(
+            width: 3,
+            height: 1,
+            decoration: BoxDecoration(
+              color: Colors.yellow[300]!.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(1),
             ),
           ),
         ),
