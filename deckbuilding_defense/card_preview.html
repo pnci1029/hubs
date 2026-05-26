@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>카드 샘플 — 실루엣 아트</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #060614;
+  color: #eeeeff;
+  font-family: 'Segoe UI', 'Noto Sans KR', system-ui, sans-serif;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+h2 {
+  font-size: 11px;
+  color: #44446a;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.row { display: flex; gap: 18px; flex-wrap: wrap; align-items: flex-start; }
+
+/* ── 카드 프레임 ── */
+.card {
+  width: 120px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform .18s cubic-bezier(.2,.8,.4,1.2), box-shadow .18s;
+  position: relative;
+}
+.card:hover { transform: translateY(-10px) scale(1.06); }
+
+.card.unit     { border: 1.5px solid rgba(239,83,80,.55);   box-shadow: 0 0 18px rgba(239,83,80,.12); }
+.card.resource { border: 1.5px solid rgba(41,182,246,.45);  box-shadow: 0 0 18px rgba(41,182,246,.1); }
+.card.effect   { border: 1.5px solid rgba(171,71,188,.5);   box-shadow: 0 0 18px rgba(171,71,188,.1); }
+
+/* 상단 컬러 선 */
+.card.unit::before     { content:''; display:block; height:2px; background:#ef5350; box-shadow:0 0 8px rgba(239,83,80,.7); }
+.card.resource::before { content:''; display:block; height:2px; background:#29b6f6; box-shadow:0 0 8px rgba(41,182,246,.7); }
+.card.effect::before   { content:''; display:block; height:2px; background:#ab47bc; box-shadow:0 0 8px rgba(171,71,188,.7); }
+
+/* ── 아트 영역 ── */
+.card-art {
+  position: relative;
+  height: 80px;
+  overflow: hidden;
+}
+.card-art svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── 정보 영역 ── */
+.card-info {
+  background: #0d0d22;
+  padding: 7px 9px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-name {
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: .2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1;
+}
+.card-cost {
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffd740;
+  flex-shrink: 0;
+  font-family: monospace;
+}
+.card-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 1px;
+}
+.type-pill {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.unit     .type-pill { color:#ef5350; background:rgba(239,83,80,.14); border:1px solid rgba(239,83,80,.3); }
+.resource .type-pill { color:#29b6f6; background:rgba(41,182,246,.12); border:1px solid rgba(41,182,246,.25); }
+.effect   .type-pill { color:#ab47bc; background:rgba(171,71,188,.12); border:1px solid rgba(171,71,188,.25); }
+.stat-num {
+  font-size: 11px;
+  font-weight: 900;
+  font-family: monospace;
+}
+.unit .stat-num     { color: #ef5350; }
+.resource .stat-num { color: #29b6f6; }
+.effect .stat-num   { color: #ab47bc; }
+
+.card-desc {
+  font-size: 9.5px;
+  color: #7070aa;
+  line-height: 1.35;
+}
+.card-flavor {
+  font-size: 8px;
+  color: #383860;
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 3px;
+  border-top: 1px solid rgba(255,255,255,.03);
+  margin-top: 2px;
+}
+</style>
+</head>
+<body>
+
+<h2>카드 샘플 — 유닛 실루엣 아트 (어두운 배경 + 타입 컬러 강조)</h2>
+
+<div class="row">
+
+<!-- ════════════════ MARINE ════════════════ -->
+<div class="card unit">
+  <div class="card-art">
+    <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="mg_bg" cx="50%" cy="35%" r="65%">
+          <stop offset="0%" stop-color="#2a0606"/>
+          <stop offset="100%" stop-color="#07020a"/>
+        </radialGradient>
+        <radialGradient id="mg_glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="rgba(239,83,80,0.22)"/>
+          <stop offset="100%" stop-color="rgba(239,83,80,0)"/>
+        </radialGradient>
+      </defs>
+      <!-- BG -->
+      <rect width="120" height="80" fill="url(#mg_bg)"/>
+      <ellipse cx="60" cy="40" rx="45" ry="35" fill="url(#mg_glow)"/>
+      <!-- 스캔라인 -->
+      <rect width="120" height="80" fill="none"/>
+      <line x1="0" y1="10" x2="120" y2="10" stroke="rgba(239,83,80,.04)" stroke-width="1"/>
+      <line x1="0" y1="20" x2="120" y2="20" stroke="rgba(239,83,80,.04)" stroke-width="1"/>
+      <line x1="0" y1="30" x2="120" y2="30" stroke="rgba(239,83,80,.04)" stroke-width="1"/>
+      <line x1="0" y1="40" x2="120" y2="40" stroke="rgba(239,83,80,.04)" stroke-width="1"/>
+      <line x1="0" y1="50" x2="120" y2="50" stroke="rgba(239,83,80,.04)" stroke-width="1"/>
+      <line x1="0" y1="60" x2="120" y2="60" stroke="rgba(239,83,80,.04)" stroke-width="1"/>
+      <line x1="0" y1="70" x2="120" y2="70" stroke="rgba(239,83,80,.04)" stroke-width="1"/>
+
+      <!-- 지면 그림자 -->
+      <ellipse cx="60" cy="76" rx="26" ry="4" fill="rgba(0,0,0,0.5)"/>
+
+      <!-- 다리 -->
+      <rect x="42" y="56" width="13" height="19" rx="3" fill="#160404"/>
+      <rect x="58" y="56" width="13" height="19" rx="3" fill="#110303"/>
+      <!-- 부츠 -->
+      <rect x="40" y="68" width="15" height="7" rx="2" fill="#200606"/>
+      <rect x="56" y="68" width="15" height="7" rx="2" fill="#1a0505"/>
+
+      <!-- 몸통 갑옷 -->
+      <rect x="34" y="36" width="38" height="24" rx="6" fill="#1d0505"/>
+      <!-- 흉갑 디테일 -->
+      <rect x="42" y="41" width="22" height="12" rx="2" fill="#160404"/>
+      <!-- LED 인디케이터 -->
+      <rect x="50" y="43" width="3" height="3" rx="1" fill="#ef5350" opacity="0.9"/>
+      <rect x="56" y="43" width="3" height="3" rx="1" fill="#ef5350" opacity="0.5"/>
+
+      <!-- 왼쪽 어깨 패드 -->
+      <ellipse cx="30" cy="40" rx="11" ry="8" fill="#200808"/>
+      <ellipse cx="30" cy="38" rx="9" ry="5" fill="#2a0a0a"/>
+
+      <!-- 오른쪽 어깨 패드 (총 쪽) -->
+      <ellipse cx="86" cy="40" rx="11" ry="8" fill="#200808"/>
+
+      <!-- 왼팔 -->
+      <rect x="18" y="38" width="13" height="16" rx="4" fill="#1a0505"/>
+      <!-- 왼손 -->
+      <ellipse cx="24" cy="56" rx="5" ry="4" fill="#160404"/>
+
+      <!-- 오른팔 -->
+      <rect x="82" y="40" width="12" height="11" rx="3" fill="#1a0505"/>
+
+      <!-- ══ 가우스 라이플 ══ -->
+      <!-- 몸체 -->
+      <rect x="74" y="34" width="38" height="11" rx="3" fill="#0d0303"/>
+      <!-- 총열 -->
+      <rect x="100" y="36" width="18" height="5" rx="1" fill="#0a0202"/>
+      <!-- 가늠자 -->
+      <rect x="82" y="31" width="4" height="4" rx="1" fill="#160505"/>
+      <rect x="96" y="31" width="4" height="5" rx="1" fill="#160505"/>
+      <!-- 총구 화염 (빨간 글로우) -->
+      <ellipse cx="118" cy="38" rx="4" ry="3" fill="#ff5252" opacity="0.7"/>
+      <ellipse cx="118" cy="38" rx="7" ry="5" fill="rgba(255,82,82,.3)"/>
+
+      <!-- 헬멧 -->
+      <ellipse cx="59" cy="26" rx="17" ry="16" fill="#1d0505"/>
+      <ellipse cx="59" cy="24" rx="15" ry="12" fill="#160404"/>
+
+      <!-- 바이저 (사이안 글로우) -->
+      <rect x="44" y="19" width="30" height="11" rx="5" fill="#0277bd"/>
+      <rect x="45" y="20" width="28" height="9" rx="4" fill="#29b6f6"/>
+      <!-- 바이저 반사 -->
+      <rect x="47" y="21" width="10" height="3" rx="1" fill="rgba(255,255,255,0.45)"/>
+      <!-- 바이저 글로우 -->
+      <rect x="44" y="19" width="30" height="11" rx="5" fill="none" stroke="rgba(41,182,246,0.4)" stroke-width="1.5"/>
+
+      <!-- 턱받이 -->
+      <rect x="46" y="32" width="26" height="7" rx="3" fill="#1a0404"/>
+
+      <!-- 헬멧 안테나 -->
+      <line x1="66" y1="10" x2="68" y2="4" stroke="#2a0808" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="68" cy="3" r="1.5" fill="#ef5350" opacity="0.7"/>
+    </svg>
+  </div>
+  <div class="card-info">
+    <div class="card-top">
+      <div class="card-name">마린</div>
+      <div class="card-cost">⬡2</div>
+    </div>
+    <div class="card-badge">
+      <span class="type-pill">유닛</span>
+      <span class="stat-num">⚔ 1</span>
+    </div>
+    <div class="card-desc">화력 1 (최대 12장)</div>
+    <div class="card-flavor">전선의 영웅</div>
+  </div>
+</div>
+
+<!-- ════════════════ SCV ════════════════ -->
+<div class="card resource">
+  <div class="card-art">
+    <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="scv_bg" cx="50%" cy="40%" r="65%">
+          <stop offset="0%" stop-color="#021520"/>
+          <stop offset="100%" stop-color="#030810"/>
+        </radialGradient>
+        <radialGradient id="scv_glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="rgba(41,182,246,0.2)"/>
+          <stop offset="100%" stop-color="rgba(41,182,246,0)"/>
+        </radialGradient>
+      </defs>
+      <rect width="120" height="80" fill="url(#scv_bg)"/>
+      <ellipse cx="60" cy="40" rx="45" ry="32" fill="url(#scv_glow)"/>
+      <!-- 격자 패턴 배경 -->
+      <line x1="0" y1="20" x2="120" y2="20" stroke="rgba(41,182,246,.06)" stroke-width="1"/>
+      <line x1="0" y1="40" x2="120" y2="40" stroke="rgba(41,182,246,.06)" stroke-width="1"/>
+      <line x1="0" y1="60" x2="120" y2="60" stroke="rgba(41,182,246,.06)" stroke-width="1"/>
+      <line x1="30" y1="0" x2="30" y2="80" stroke="rgba(41,182,246,.04)" stroke-width="1"/>
+      <line x1="60" y1="0" x2="60" y2="80" stroke="rgba(41,182,246,.04)" stroke-width="1"/>
+      <line x1="90" y1="0" x2="90" y2="80" stroke="rgba(41,182,246,.04)" stroke-width="1"/>
+
+      <!-- 지면 그림자 -->
+      <ellipse cx="60" cy="76" rx="28" ry="4" fill="rgba(0,0,0,0.5)"/>
+
+      <!-- 트랙/이동 장치 (하단) -->
+      <rect x="26" y="60" width="22" height="14" rx="5" fill="#0a1020"/>
+      <rect x="68" y="60" width="22" height="14" rx="5" fill="#091018"/>
+      <!-- 트랙 디테일 -->
+      <rect x="28" y="62" width="18" height="4" rx="2" fill="#0d1828" opacity="0.8"/>
+      <rect x="70" y="62" width="18" height="4" rx="2" fill="#0d1828" opacity="0.8"/>
+      <circle cx="31" cy="69" r="3" fill="#0e1830"/>
+      <circle cx="42" cy="69" r="3" fill="#0e1830"/>
+      <circle cx="73" cy="69" r="3" fill="#0e1830"/>
+      <circle cx="84" cy="69" r="3" fill="#0e1830"/>
+
+      <!-- 몸통 -->
+      <rect x="32" y="32" width="52" height="30" rx="6" fill="#091628"/>
+      <!-- 몸통 패널 -->
+      <rect x="36" y="36" width="20" height="18" rx="3" fill="#0d1e36"/>
+      <rect x="60" y="36" width="20" height="18" rx="3" fill="#0b1c32"/>
+      <!-- 중앙 코어 -->
+      <rect x="52" y="40" width="12" height="10" rx="2" fill="#071020"/>
+      <circle cx="58" cy="45" r="3" fill="#29b6f6" opacity="0.8"/>
+      <circle cx="58" cy="45" r="5" fill="rgba(41,182,246,.25)"/>
+
+      <!-- 오른팔 (드릴/클로) -->
+      <rect x="84" y="34" width="12" height="20" rx="4" fill="#0a1828"/>
+      <!-- 드릴 -->
+      <polygon points="96,40 112,36 112,48 96,50" fill="#0d2040"/>
+      <line x1="96" y1="42" x2="112" y2="38" stroke="rgba(41,182,246,.4)" stroke-width="1.5"/>
+      <line x1="96" y1="46" x2="112" y2="44" stroke="rgba(41,182,246,.3)" stroke-width="1"/>
+
+      <!-- 왼팔 (스캐너) -->
+      <rect x="22" y="34" width="11" height="18" rx="4" fill="#0a1828"/>
+      <!-- 스캐너 디바이스 -->
+      <rect x="10" y="30" width="14" height="14" rx="3" fill="#0d2040"/>
+      <circle cx="17" cy="37" r="4" fill="rgba(41,182,246,.15)" stroke="rgba(41,182,246,.5)" stroke-width="1.5"/>
+      <line x1="17" y1="33" x2="17" y2="41" stroke="rgba(41,182,246,.5)" stroke-width="1"/>
+      <line x1="13" y1="37" x2="21" y2="37" stroke="rgba(41,182,246,.5)" stroke-width="1"/>
+
+      <!-- 헤드/캐빈 -->
+      <rect x="38" y="14" width="38" height="22" rx="5" fill="#0d1e36"/>
+      <rect x="42" y="18" width="30" height="14" rx="4" fill="#091828"/>
+      <!-- 전면 유리 / 조종석 -->
+      <rect x="44" y="17" width="28" height="12" rx="4" fill="#0b2040"/>
+      <rect x="45" y="18" width="26" height="10" rx="3" fill="#29b6f6" opacity="0.18"/>
+      <!-- 조종석 반사 -->
+      <rect x="47" y="19" width="8" height="3" rx="1" fill="rgba(255,255,255,.25)"/>
+      <!-- 탑 라이트 -->
+      <circle cx="58" cy="13" r="3" fill="#ffd740" opacity="0.85"/>
+      <circle cx="58" cy="13" r="5" fill="rgba(255,215,64,.3)"/>
+    </svg>
+  </div>
+  <div class="card-info">
+    <div class="card-top">
+      <div class="card-name">SCV</div>
+      <div class="card-cost">⬡0</div>
+    </div>
+    <div class="card-badge">
+      <span class="type-pill">자원</span>
+      <span class="stat-num">⬡ +1</span>
+    </div>
+    <div class="card-desc">미네랄 +1</div>
+    <div class="card-flavor">건설 요원</div>
+  </div>
+</div>
+
+<!-- ════════════════ BATTLECRUISER ════════════════ -->
+<div class="card unit">
+  <div class="card-art">
+    <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="bc_bg" cx="50%" cy="50%" r="70%">
+          <stop offset="0%" stop-color="#180412"/>
+          <stop offset="100%" stop-color="#040208"/>
+        </radialGradient>
+        <radialGradient id="bc_eng" cx="50%" cy="100%" r="60%">
+          <stop offset="0%" stop-color="rgba(239,83,80,0.35)"/>
+          <stop offset="100%" stop-color="rgba(239,83,80,0)"/>
+        </radialGradient>
+      </defs>
+      <rect width="120" height="80" fill="url(#bc_bg)"/>
+      <!-- 엔진 글로우 (뒤에서) -->
+      <rect width="120" height="80" fill="url(#bc_eng)"/>
+      <!-- 별 배경 -->
+      <circle cx="10" cy="8" r="1" fill="white" opacity="0.5"/>
+      <circle cx="25" cy="15" r="0.8" fill="white" opacity="0.4"/>
+      <circle cx="50" cy="5" r="1.2" fill="white" opacity="0.6"/>
+      <circle cx="80" cy="12" r="0.8" fill="white" opacity="0.3"/>
+      <circle cx="100" cy="6" r="1" fill="white" opacity="0.5"/>
+      <circle cx="115" cy="20" r="0.7" fill="white" opacity="0.4"/>
+      <circle cx="8" cy="45" r="0.9" fill="white" opacity="0.3"/>
+      <circle cx="112" cy="55" r="1" fill="white" opacity="0.4"/>
+      <circle cx="95" cy="72" r="0.8" fill="white" opacity="0.35"/>
+      <circle cx="18" cy="70" r="0.7" fill="white" opacity="0.3"/>
+
+      <!-- 배틀크루저 선체 (상단 뷰 / 비스듬히) -->
+      <!-- 메인 헐 (거대한 쐐기형) -->
+      <polygon points="60,6 108,58 60,72 12,58" fill="#120308"/>
+      <!-- 선체 패널 라인 -->
+      <polygon points="60,14 100,54 60,64 20,54" fill="none" stroke="rgba(239,83,80,.2)" stroke-width="1"/>
+      <polygon points="60,22 92,50 60,58 28,50" fill="none" stroke="rgba(239,83,80,.12)" stroke-width="1"/>
+
+      <!-- 브릿지 (중앙 구조) -->
+      <polygon points="60,16 80,42 60,48 40,42" fill="#1d0510"/>
+      <polygon points="60,22 74,40 60,44 46,40" fill="#250614"/>
+
+      <!-- 선수포 (왼쪽) -->
+      <line x1="60" y1="6" x2="12" y2="58" stroke="#1a0410" stroke-width="4"/>
+      <rect x="6" y="52" width="14" height="5" rx="2" fill="#1a0410"/>
+
+      <!-- 선수포 (오른쪽) -->
+      <rect x="100" y="52" width="14" height="5" rx="2" fill="#1a0410"/>
+
+      <!-- 야마토 캐논 -->
+      <ellipse cx="60" cy="30" rx="10" ry="6" fill="#200612"/>
+      <rect x="56" y="6" width="8" height="24" rx="3" fill="#1d0610"/>
+      <!-- 야마토 충전 -->
+      <ellipse cx="60" cy="10" rx="4" ry="3" fill="#ff5252" opacity="0.5"/>
+      <ellipse cx="60" cy="10" rx="6" ry="4" fill="rgba(255,82,82,.2)"/>
+
+      <!-- 엔진 노즐 (뒤) -->
+      <ellipse cx="40" cy="68" rx="8" ry="4" fill="#250515"/>
+      <ellipse cx="40" cy="68" rx="5" ry="3" fill="#ef5350" opacity="0.75"/>
+      <ellipse cx="40" cy="68" rx="8" ry="5" fill="rgba(239,83,80,.3)"/>
+
+      <ellipse cx="80" cy="68" rx="8" ry="4" fill="#250515"/>
+      <ellipse cx="80" cy="68" rx="5" ry="3" fill="#ef5350" opacity="0.75"/>
+      <ellipse cx="80" cy="68" rx="8" ry="5" fill="rgba(239,83,80,.3)"/>
+
+      <ellipse cx="60" cy="70" rx="6" ry="3.5" fill="#ef5350" opacity="0.85"/>
+      <ellipse cx="60" cy="70" rx="10" ry="6" fill="rgba(239,83,80,.3)"/>
+
+      <!-- 브릿지 윈도우 -->
+      <rect x="55" y="26" width="10" height="6" rx="2" fill="#ff8a65" opacity="0.5"/>
+      <rect x="56" y="27" width="8" height="4" rx="1" fill="#ffccbc" opacity="0.3"/>
+    </svg>
+  </div>
+  <div class="card-info">
+    <div class="card-top">
+      <div class="card-name">배틀크루저</div>
+      <div class="card-cost">⬡11</div>
+    </div>
+    <div class="card-badge">
+      <span class="type-pill">유닛</span>
+      <span class="stat-num">⚔ 8</span>
+    </div>
+    <div class="card-desc">화력 8 (최상급)</div>
+    <div class="card-flavor">궤도 타격함</div>
+  </div>
+</div>
+
+<!-- ════════════════ HYDRALISK ════════════════ -->
+<div class="card unit">
+  <div class="card-art">
+    <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="hy_bg" cx="50%" cy="40%" r="70%">
+          <stop offset="0%" stop-color="#0a1a06"/>
+          <stop offset="100%" stop-color="#030808"/>
+        </radialGradient>
+        <radialGradient id="hy_glow" cx="55%" cy="40%" r="50%">
+          <stop offset="0%" stop-color="rgba(105,240,174,0.18)"/>
+          <stop offset="100%" stop-color="rgba(105,240,174,0)"/>
+        </radialGradient>
+      </defs>
+      <rect width="120" height="80" fill="url(#hy_bg)"/>
+      <ellipse cx="65" cy="35" rx="40" ry="30" fill="url(#hy_glow)"/>
+
+      <!-- 지면 그림자 -->
+      <ellipse cx="70" cy="76" rx="30" ry="4" fill="rgba(0,0,0,0.45)"/>
+
+      <!-- 꼬리 / 하체 (뒤쪽) -->
+      <path d="M 20 70 Q 40 65 55 55 Q 65 48 70 58 Q 75 68 90 70"
+        stroke="#0d1c0a" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <path d="M 20 70 Q 40 65 55 55 Q 65 48 70 58 Q 75 68 90 70"
+        stroke="#0f2008" stroke-width="10" fill="none" stroke-linecap="round"/>
+
+      <!-- 등 가시 (스파인) -->
+      <line x1="48" y1="30" x2="44" y2="14" stroke="#0a1805" stroke-width="3" stroke-linecap="round"/>
+      <line x1="54" y1="26" x2="52" y2="10" stroke="#0a1805" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="60" y1="23" x2="60" y2="7" stroke="#0a1805" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="66" y1="22" x2="68" y2="8" stroke="#0a1805" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="72" y1="24" x2="76" y2="12" stroke="#0a1805" stroke-width="2" stroke-linecap="round"/>
+      <!-- 가시 끝 (밝은 녹색) -->
+      <circle cx="44" cy="14" r="2" fill="#69f0ae" opacity="0.6"/>
+      <circle cx="52" cy="10" r="1.8" fill="#69f0ae" opacity="0.5"/>
+      <circle cx="60" cy="7" r="2" fill="#69f0ae" opacity="0.65"/>
+      <circle cx="68" cy="8" r="1.8" fill="#69f0ae" opacity="0.5"/>
+      <circle cx="76" cy="12" r="1.5" fill="#69f0ae" opacity="0.4"/>
+
+      <!-- 상체 (뱀형 몸통) -->
+      <ellipse cx="62" cy="38" rx="22" ry="20" fill="#0d1e0a"/>
+      <ellipse cx="62" cy="36" rx="18" ry="15" fill="#0f2408"/>
+
+      <!-- 팔 (침 발사기) -->
+      <!-- 오른팔 -->
+      <path d="M 72 42 Q 90 36 100 28" stroke="#0d1e0a" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M 72 42 Q 90 36 100 28" stroke="#102208" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <!-- 오른팔 침 -->
+      <polygon points="100,28 112,22 106,32" fill="#0d1e0a"/>
+      <line x1="106" y1="25" x2="115" y2="20" stroke="#69f0ae" stroke-width="1.5" opacity="0.7"/>
+
+      <!-- 왼팔 -->
+      <path d="M 50 44 Q 34 38 24 30" stroke="#0d1e0a" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M 50 44 Q 34 38 24 30" stroke="#102208" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <!-- 왼팔 침 -->
+      <polygon points="24,30 12,24 18,34" fill="#0d1e0a"/>
+
+      <!-- 목 / 상부 -->
+      <ellipse cx="62" cy="26" rx="14" ry="16" fill="#0d2008"/>
+      <ellipse cx="62" cy="24" rx="11" ry="12" fill="#102408"/>
+
+      <!-- 머리 -->
+      <ellipse cx="62" cy="18" rx="12" ry="10" fill="#0f2206"/>
+      <!-- 크레스트 (머리 뿔) -->
+      <polygon points="56,10 54,2 60,8" fill="#0a1804"/>
+      <polygon points="62,8 62,0 67,8" fill="#0a1804"/>
+      <polygon points="68,10 70,2 74,10" fill="#0a1804"/>
+
+      <!-- 눈 (노란 글로우) -->
+      <ellipse cx="56" cy="17" rx="4" ry="3" fill="#ffcc02" opacity="0.9"/>
+      <ellipse cx="56" cy="17" rx="6" ry="4" fill="rgba(255,204,2,.3)"/>
+      <ellipse cx="68" cy="17" rx="4" ry="3" fill="#ffcc02" opacity="0.9"/>
+      <ellipse cx="68" cy="17" rx="6" ry="4" fill="rgba(255,204,2,.3)"/>
+      <!-- 눈동자 -->
+      <ellipse cx="57" cy="17" rx="2" ry="2" fill="#1a0800"/>
+      <ellipse cx="69" cy="17" rx="2" ry="2" fill="#1a0800"/>
+
+      <!-- 입 -->
+      <path d="M 56 23 Q 62 27 68 23" stroke="#69f0ae" stroke-width="1.5" fill="none" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="card-info">
+    <div class="card-top">
+      <div class="card-name">히드라리스크</div>
+      <div class="card-cost">⬡5</div>
+    </div>
+    <div class="card-badge">
+      <span class="type-pill">유닛</span>
+      <span class="stat-num">⚔ 3</span>
+    </div>
+    <div class="card-desc">화력 3</div>
+    <div class="card-flavor">침투 전문가</div>
+  </div>
+</div>
+
+<!-- ════════════════ SUPPLY DEPOT ════════════════ -->
+<div class="card effect">
+  <div class="card-art">
+    <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="sd_bg" cx="50%" cy="50%" r="65%">
+          <stop offset="0%" stop-color="#100820"/>
+          <stop offset="100%" stop-color="#060410"/>
+        </radialGradient>
+        <radialGradient id="sd_glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="rgba(171,71,188,0.2)"/>
+          <stop offset="100%" stop-color="rgba(171,71,188,0)"/>
+        </radialGradient>
+      </defs>
+      <rect width="120" height="80" fill="url(#sd_bg)"/>
+      <ellipse cx="60" cy="45" rx="40" ry="30" fill="url(#sd_glow)"/>
+
+      <!-- 지면 그림자 -->
+      <ellipse cx="60" cy="75" rx="35" ry="4" fill="rgba(0,0,0,.5)"/>
+
+      <!-- 메인 건물 벽 -->
+      <rect x="18" y="36" width="84" height="38" rx="3" fill="#0d0820"/>
+      <!-- 벽 패널 -->
+      <rect x="22" y="40" width="34" height="30" rx="2" fill="#100a24"/>
+      <rect x="60" y="40" width="38" height="30" rx="2" fill="#0e0922"/>
+
+      <!-- 지붕 -->
+      <rect x="14" y="28" width="92" height="12" rx="3" fill="#150c2a"/>
+      <!-- 지붕 경사 -->
+      <polygon points="14,28 60,16 106,28" fill="#1a0e32"/>
+      <polygon points="18,28 60,18 102,28" fill="#180c2e"/>
+
+      <!-- 창문/환기구들 -->
+      <rect x="24" y="48" width="14" height="10" rx="2" fill="#ab47bc" opacity="0.3"/>
+      <rect x="25" y="49" width="12" height="8" rx="1" fill="rgba(171,71,188,.5)"/>
+      <!-- 창문 빛 -->
+      <rect x="26" y="50" width="4" height="3" rx="1" fill="rgba(255,255,255,.3)"/>
+
+      <rect x="44" y="48" width="14" height="10" rx="2" fill="#ab47bc" opacity="0.25"/>
+      <rect x="45" y="49" width="12" height="8" rx="1" fill="rgba(171,71,188,.4)"/>
+      <rect x="46" y="50" width="4" height="3" rx="1" fill="rgba(255,255,255,.25)"/>
+
+      <rect x="64" y="48" width="14" height="10" rx="2" fill="#ab47bc" opacity="0.25"/>
+      <rect x="65" y="49" width="12" height="8" rx="1" fill="rgba(171,71,188,.4)"/>
+
+      <rect x="84" y="48" width="14" height="10" rx="2" fill="#ab47bc" opacity="0.2"/>
+
+      <!-- 문 -->
+      <rect x="50" y="58" width="20" height="16" rx="2" fill="#120a28"/>
+      <line x1="60" y1="58" x2="60" y2="74" stroke="#ab47bc" stroke-width="1" opacity="0.4"/>
+      <!-- 문 핸들 -->
+      <circle cx="56" cy="66" r="1.5" fill="#ab47bc" opacity="0.6"/>
+      <circle cx="64" cy="66" r="1.5" fill="#ab47bc" opacity="0.6"/>
+
+      <!-- 안테나 / 카드 픽업 -->
+      <line x1="60" y1="16" x2="60" y2="6" stroke="#1e1040" stroke-width="2"/>
+      <rect x="54" y="4" width="12" height="5" rx="2" fill="#1e1040"/>
+      <!-- 카드 아이콘 -->
+      <rect x="56" y="5" width="7" height="5" rx="1" fill="#ab47bc" opacity="0.7"/>
+      <circle cx="60" cy="3" r="2" fill="#ab47bc" opacity="0.8"/>
+      <circle cx="60" cy="3" r="4" fill="rgba(171,71,188,.3)"/>
+
+      <!-- 보급품 박스들 (옆에) -->
+      <rect x="4" y="52" width="12" height="12" rx="2" fill="#150c2a"/>
+      <rect x="5" y="53" width="10" height="10" rx="1" fill="#1c1035"/>
+      <line x1="4" y1="58" x2="16" y2="58" stroke="rgba(171,71,188,.3)" stroke-width="1"/>
+      <line x1="10" y1="52" x2="10" y2="64" stroke="rgba(171,71,188,.3)" stroke-width="1"/>
+
+      <rect x="104" y="52" width="12" height="12" rx="2" fill="#150c2a"/>
+      <rect x="105" y="53" width="10" height="10" rx="1" fill="#1c1035"/>
+      <line x1="104" y1="58" x2="116" y2="58" stroke="rgba(171,71,188,.3)" stroke-width="1"/>
+      <line x1="110" y1="52" x2="110" y2="64" stroke="rgba(171,71,188,.3)" stroke-width="1"/>
+    </svg>
+  </div>
+  <div class="card-info">
+    <div class="card-top">
+      <div class="card-name">보급고</div>
+      <div class="card-cost">⬡4</div>
+    </div>
+    <div class="card-badge">
+      <span class="type-pill">효과</span>
+      <span class="stat-num">+3 드로우</span>
+    </div>
+    <div class="card-desc">카드 +3 드로우</div>
+    <div class="card-flavor">전선 보급 기지</div>
+  </div>
+</div>
+
+</div><!-- /row -->
+
+</body>
+</html>

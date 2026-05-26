@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>덱 빌딩 디펜스</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- ── 상단 HUD ── -->
+  <header class="hud">
+    <div class="hud-logo">⚔ DECK DEFENSE</div>
+
+    <div class="hud-stats">
+      <div class="hud-stat">
+        <span class="hud-stat-label">ROUND</span>
+        <span class="hud-stat-val" id="statRound">0 / 30</span>
+      </div>
+      <div class="hud-stat">
+        <span class="hud-stat-label">HP</span>
+        <span class="hud-stat-val hp" id="statHp">20</span>
+      </div>
+      <div class="hud-stat wide">
+        <span class="hud-stat-label">적군 누적</span>
+        <div class="escaped-bar-wrap">
+          <div class="escaped-bar-track">
+            <div class="escaped-bar-fill" id="escapedBarFill"></div>
+          </div>
+          <span class="hud-stat-val escaped" id="statEscaped">0 / 50</span>
+        </div>
+      </div>
+      <div class="hud-stat">
+        <span class="hud-stat-label">⬡ 미네랄</span>
+        <span class="hud-stat-val mineral" id="statMinerals">0</span>
+      </div>
+      <div class="hud-stat">
+        <span class="hud-stat-label">마나</span>
+        <div class="mana-pips" id="manaPips"></div>
+      </div>
+      <div class="hud-stat" id="statDpsWrap" style="display:none">
+        <span class="hud-stat-label">DPS</span>
+        <span class="hud-stat-val" id="statDps" style="color:#ef5350;font-size:13px">0</span>
+      </div>
+      <div class="hud-stat" id="statEnemyWrap" style="display:none">
+        <span class="hud-stat-label">남은 적</span>
+        <span class="hud-stat-val" id="statEnemy" style="color:#ffcc02;font-size:13px">0</span>
+      </div>
+      <div class="hud-stat" id="statTimerWrap" style="display:none">
+        <span class="hud-stat-label">⏱ 시간</span>
+        <span class="hud-stat-val" id="statTimer" style="color:#29b6f6;font-size:13px">30</span>
+      </div>
+    </div>
+
+    <div class="hud-deck">
+      <span>🂠 <b id="statDeck">0</b></span>
+      <span>🗑 <b id="statDiscard">0</b></span>
+      <span id="statMarinToken" class="marin-token-badge"></span>
+    </div>
+  </header>
+
+  <!-- ── 메인 ── -->
+  <main class="game-main">
+
+    <!-- 전장 캔버스 -->
+    <section class="battle-section">
+      <canvas id="battleCanvas" width="720" height="720"></canvas>
+    </section>
+
+    <!-- 우측 패널 -->
+    <aside class="side-panel">
+
+      <!-- 페이즈 컨트롤 -->
+      <div class="phase-panel" id="phasePanel">
+        <div class="phase-label" id="phaseLabel">⏸ 준비 단계</div>
+        <div class="wave-preview" id="wavePreview"></div>
+        <div class="phase-btns">
+          <button class="btn-start" id="btnStart">▶ 라운드 시작</button>
+          <button class="btn-end hidden" id="btnEnd">■ 라운드 종료</button>
+          <button class="btn-speed" id="btnSpeed">1×</button>
+        </div>
+        <button class="btn-resources" id="btnResources">⬡ 자원 전부 사용</button>
+        <button class="btn-refresh-shop" id="btnRefreshShop">🔄 상점 새로고침 (마나 1)</button>
+        <div class="kbd-hint"><kbd>SPACE</kbd> 시작/종료 &nbsp; <kbd>R</kbd> 자원 사용 &nbsp; <kbd>S</kbd> 배속 &nbsp; <kbd>F</kbd> 상점 새로고침</div>
+      </div>
+
+      <div class="panel-divider"></div>
+
+      <!-- 상점 -->
+      <div class="shop-panel">
+        <div class="shop-title">🏪 상점</div>
+        <div class="shop-grid" id="shopGrid"></div>
+      </div>
+
+      <div class="panel-divider"></div>
+
+      <!-- 덱 현황 (우측 하단) -->
+      <div class="deckview-wrap">
+        <div class="deckview-header">
+          <span class="deckview-title">📋 내 카드</span>
+          <span class="deckview-total">(<span id="deckviewTotalCount">0</span>장)</span>
+        </div>
+        <div class="deckview-panel open" id="deckviewPanel">
+          <div class="deckview-content" id="deckviewContent"></div>
+        </div>
+      </div>
+
+    </aside>
+  </main>
+
+  <!-- ── 마법 카드 슬롯 ── -->
+  <div class="magic-zone" id="magicZone">
+    <div class="magic-zone-header">
+      <span class="magic-zone-title">✨ 마법 카드</span>
+      <span class="magic-zone-count">(<span id="magicCardCount">0</span> / 3)</span>
+      <span class="magic-zone-hint">언제든지 사용 가능 · 사용 즉시 소멸</span>
+    </div>
+    <div class="magic-cards-list" id="magicCardsList">
+      <span class="magic-zone-empty" id="magicZoneEmpty">마법 카드 없음 — 상점에서 구매하세요</span>
+    </div>
+  </div>
+
+  <!-- ── 손패 ── -->
+  <footer class="hand-zone">
+    <div class="hand-info">
+      <span class="hand-title">손패</span>
+      <span class="hand-hint" id="handHint"></span>
+      <span class="hand-count">(<span id="handCount">0</span>장)</span>
+    </div>
+    <div class="hand-cards" id="handCards"></div>
+  </footer>
+
+  <!-- ── 라운드 요약 팝업 ── -->
+  <div class="summary-overlay hidden" id="summaryOverlay">
+    <div class="summary-box">
+      <div class="summary-round" id="sumRound">ROUND 1 완료</div>
+      <div class="summary-rows" id="sumRows"></div>
+      <div class="summary-next" id="sumNext"></div>
+      <div class="summary-click-hint">클릭하여 계속</div>
+    </div>
+  </div>
+
+  <!-- ── 게임오버 ── -->
+  <div class="modal-overlay hidden" id="gameOverModal">
+    <div class="modal gameover">
+      <div class="modal-ico">💀</div>
+      <h2>GAME OVER</h2>
+      <p id="gameOverMsg"></p>
+      <div class="modal-stats" id="gameOverStats"></div>
+      <button class="btn-modal" onclick="initGame()">↺ 다시 시작</button>
+    </div>
+  </div>
+
+  <!-- ── 승리 ── -->
+  <div class="modal-overlay hidden" id="victoryModal">
+    <div class="modal victory">
+      <div class="modal-ico">🏆</div>
+      <h2>VICTORY!</h2>
+      <p>30라운드를 완전히 클리어했습니다!</p>
+      <div class="modal-stats" id="victoryStats"></div>
+      <button class="btn-modal" onclick="initGame()">↺ 다시 시작</button>
+    </div>
+  </div>
+
+  <!-- ── 토스트 ── -->
+  <div id="toast"></div>
+
+  <!-- ── 카드 툴팁 ── -->
+  <div id="cardTooltip"></div>
+
+  <script src="js/data-cards.js"></script>
+  <script src="js/data-enemies.js"></script>
+  <script src="js/data-art.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
