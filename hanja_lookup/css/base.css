@@ -1,0 +1,183 @@
+/* ── 리셋 · 변수 · 레이아웃 · 헤더 · 검색창 ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg0: #09090f;
+  --bg1: #0f0f1a;
+  --bg2: #15152a;
+  --bg3: #1c1c36;
+  --border: #252545;
+  --border2: #333360;
+  --text-hi: #eeeeff;
+  --text-mid: #8888bb;
+  --text-lo: #44446a;
+  --gold: #ffd740;
+  --gold-dim: rgba(255,215,64,.15);
+  --blue: #29b6f6;
+  --purple: #ab47bc;
+  --green: #69f0ae;
+  --red: #ef5350;
+}
+
+html, body {
+  min-height: 100vh;
+  background: var(--bg0);
+  color: var(--text-hi);
+  font-family: 'Noto Sans KR', 'Malgun Gothic', 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── 헤더 ── */
+header {
+  background: linear-gradient(180deg, var(--bg3), var(--bg2));
+  border-bottom: 1px solid var(--border2);
+  padding: 20px 24px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-top {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(255,215,64,.5);
+}
+
+.logo-sub { font-size: 12px; color: var(--text-mid); }
+
+.dict-total {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--text-lo);
+}
+.dict-total span { color: var(--gold); font-weight: 700; }
+
+/* ── 검색창 ── */
+.search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg1);
+  border: 1.5px solid var(--border2);
+  border-radius: 12px;
+  padding: 8px 14px;
+  transition: border-color .2s;
+}
+.search-wrap:focus-within {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(255,215,64,.12);
+}
+
+.search-icon { font-size: 16px; color: var(--text-lo); flex-shrink: 0; }
+
+#searchInput {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text-hi);
+  font-size: 17px;
+  font-family: inherit;
+  letter-spacing: .5px;
+}
+#searchInput::placeholder { color: var(--text-lo); }
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-lo);
+  font-size: 16px;
+  padding: 2px 4px;
+  border-radius: 6px;
+  transition: color .15s, background .15s;
+  line-height: 1;
+}
+.btn-icon:hover { color: var(--text-hi); background: var(--border); }
+
+/* ── 카테고리 필터 ── */
+.cat-bar {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px 0 2px;
+  scrollbar-width: none;
+}
+.cat-bar::-webkit-scrollbar { display: none; }
+
+.cat-btn {
+  flex-shrink: 0;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 11px;
+  color: var(--text-mid);
+  cursor: pointer;
+  transition: all .15s;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.cat-btn:hover { border-color: var(--border2); color: var(--text-hi); }
+.cat-btn.active {
+  background: var(--gold-dim);
+  border-color: var(--gold);
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ── 메인 ── */
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+}
+
+.result-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  min-height: 24px;
+}
+.result-bar-left { display: flex; align-items: center; gap: 10px; }
+
+#resultCount { font-size: 12px; color: var(--text-lo); font-weight: 700; }
+
+.btn-random {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 11px;
+  color: var(--text-mid);
+  cursor: pointer;
+  transition: all .15s;
+  font-family: inherit;
+}
+.btn-random:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── 스크롤바 ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg0); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+/* ── 반응형 ── */
+@media (max-width: 500px) {
+  header { padding: 14px 14px 10px; }
+  .logo { font-size: 18px; }
+  main { padding: 14px 10px 40px; }
+  .result-hanja { font-size: 18px; letter-spacing: 2px; }
+  .char-hanja { font-size: 22px; }
+  .char-block { min-width: 54px; padding: 6px 10px; }
+}
