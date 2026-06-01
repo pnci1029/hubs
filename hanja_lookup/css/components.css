@@ -1,0 +1,189 @@
+/* ── 결과 카드 · 글자 분석 · 빈 상태 · 자동완성 ── */
+
+/* ── 결과 목록 ── */
+#results { display: flex; flex-direction: column; gap: 10px; }
+
+.result-card {
+  background: var(--bg2);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: border-color .18s, transform .18s, box-shadow .18s;
+}
+.result-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.4);
+}
+.result-card.exact {
+  border-color: rgba(255,215,64,.4);
+  background: linear-gradient(135deg, rgba(255,215,64,.05), var(--bg2));
+}
+.result-card.exact:hover { border-color: var(--gold); }
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.result-korean {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--text-hi);
+  letter-spacing: .5px;
+}
+
+.result-hanja {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 4px;
+  text-shadow: 0 0 12px rgba(255,215,64,.35);
+  font-family: 'Noto Serif CJK KR', 'Malgun Gothic', serif;
+}
+
+.result-cat {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--text-lo);
+  background: var(--bg1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.result-meaning {
+  font-size: 13px;
+  color: var(--text-mid);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+/* ── 글자별 분석 ── */
+.char-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.char-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: var(--bg1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 14px;
+  min-width: 64px;
+  transition: border-color .15s;
+}
+.char-block:hover { border-color: var(--gold); }
+
+.char-hanja {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+  font-family: 'Noto Serif CJK KR', 'Malgun Gothic', serif;
+  line-height: 1.2;
+  text-shadow: 0 0 10px rgba(255,215,64,.3);
+}
+
+.char-reading { font-size: 14px; font-weight: 700; color: var(--text-hi); }
+
+.char-meaning {
+  font-size: 10px;
+  color: var(--text-lo);
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ── 빈 상태 ── */
+#emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-lo);
+}
+#emptyState.hidden { display: none; }
+
+.empty-icon { font-size: 48px; margin-bottom: 12px; }
+.empty-msg { font-size: 14px; color: var(--text-mid); margin-bottom: 20px; }
+
+.example-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.chip {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 12px;
+  color: var(--text-mid);
+  cursor: pointer;
+  transition: all .15s;
+}
+.chip:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+
+/* ── 자동완성 드롭다운 ── */
+.autocomplete-wrap { position: relative; width: 100%; }
+
+.autocomplete-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0; right: 0;
+  background: var(--bg2);
+  border: 1.5px solid var(--border2);
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 200;
+  box-shadow: 0 8px 32px rgba(0,0,0,.6);
+  display: none;
+}
+.autocomplete-list.visible { display: block; }
+
+.autocomplete-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  cursor: pointer;
+  transition: background .12s;
+}
+.autocomplete-item:hover,
+.autocomplete-item.focused { background: var(--bg3); }
+
+.ac-korean {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-hi);
+  min-width: 60px;
+}
+.ac-korean mark { background: none; color: var(--gold); }
+
+.ac-hanja {
+  font-size: 14px;
+  color: var(--gold);
+  font-family: 'Noto Serif CJK KR', serif;
+  letter-spacing: 2px;
+}
+
+.ac-badge {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--text-lo);
+  background: var(--bg1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1px 6px;
+}
