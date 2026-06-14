@@ -3,47 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>한자 사전 — 한국어로 한자 찾기</title>
+  <title>한자 사전 — 한국어·한자 찾기</title>
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
 
   <header>
-    <div class="header-top">
-      <div class="logo">漢字</div>
-      <div class="logo-sub">한국어로 한자 찾기</div>
-      <div class="dict-total">수록 단어 <span id="dictTotal">0</span>개</div>
-    </div>
-
-    <div class="autocomplete-wrap">
-      <div class="search-wrap">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="searchInput" placeholder="예: 대국적, 인과응보, 감동…" autocomplete="off" spellcheck="false">
-        <button class="btn-icon" id="btnClear" title="지우기">✕</button>
-      </div>
-      <div class="autocomplete-list" id="acList"></div>
-    </div>
-
-    <div class="cat-bar" id="catBar"></div>
+    <div class="logo">漢字</div>
+    <div class="logo-sub">한국어·한자 사전</div>
+    <div class="dict-total">수록 <span id="dictTotal">0</span>개</div>
+    <button class="btn-random" id="btnRandom">🎲 랜덤</button>
   </header>
 
-  <main>
-    <div class="result-bar">
-      <div class="result-bar-left">
+  <div class="layout">
+
+    <!-- ── 좌: 검색 + 카테고리 사이드바 ── -->
+    <aside class="sidebar">
+      <div class="autocomplete-wrap">
+        <div class="search-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" placeholder="단어 또는 한자…" autocomplete="off" spellcheck="false">
+          <button class="btn-icon" id="btnClear" title="지우기">✕</button>
+        </div>
+        <div class="autocomplete-list" id="acList"></div>
+      </div>
+      <nav class="cat-nav" id="catBar"></nav>
+    </aside>
+
+    <!-- ── 중앙: 결과 목록 (master) ── -->
+    <section class="results-pane">
+      <div class="result-bar">
         <span id="resultCount"></span>
       </div>
-      <button class="btn-random" id="btnRandom">🎲 랜덤 단어</button>
-    </div>
 
-    <div id="results"></div>
+      <div id="results"></div>
 
-    <div id="emptyState">
-      <div class="empty-icon">漢</div>
-      <div class="empty-msg">한국어 단어를 입력하세요</div>
-      <div class="example-chips"></div>
-    </div>
-  </main>
+      <div id="emptyState">
+        <div class="empty-icon">漢</div>
+        <div class="empty-msg">한국어 단어 또는 한자를 입력하세요</div>
+        <div class="example-chips"></div>
+      </div>
+    </section>
+
+    <!-- ── 우: 상세 패널 (detail) ── -->
+    <section class="detail-pane" id="detailPane">
+      <div class="detail-empty" id="detailEmpty">
+        <div class="detail-empty-icon">字</div>
+        <div>단어를 선택하면<br>자세히 풀이해 드립니다</div>
+      </div>
+      <div id="detailContent"></div>
+    </section>
+
+  </div>
 
   <script type="module" src="js/app.js"></script>
 </body>
