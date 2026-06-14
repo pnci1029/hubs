@@ -2,7 +2,9 @@ import { createResultCard } from './result-card.js';
 import { EXAMPLE_WORDS } from '../data/examples.js';
 
 // 메인 결과 영역(결과 카드 목록 · 개수 · 빈 상태)을 담당하는 컴포넌트.
-export function createResultsList({ resultsEl, emptyEl, countEl, onSelect }) {
+// onSelect(key): 결과 카드 클릭 (상세 패널 열기)
+// onExample(word): 빈 상태의 예시 칩 클릭 (검색 실행)
+export function createResultsList({ resultsEl, emptyEl, countEl, onSelect, onExample }) {
   const emptyMsgEl = emptyEl.querySelector('.empty-msg');
 
   // 빈 상태의 예시 칩 구성 (한 번만)
@@ -13,7 +15,7 @@ export function createResultsList({ resultsEl, emptyEl, countEl, onSelect }) {
       const chip = document.createElement('span');
       chip.className = 'chip';
       chip.textContent = word;
-      chip.addEventListener('click', () => onSelect(word));
+      chip.addEventListener('click', () => (onExample || onSelect)(word));
       chipsEl.appendChild(chip);
     });
   }
